@@ -1,0 +1,82 @@
+body {
+    background: url(../img/bbaero-bkg.jpg) #61402D; 
+    background-repeat: repeat-y;
+    background-size: contain;
+    color: white;
+    /*background-size: contain;*/
+    /*min-width: 1440px;*/
+    /*min-height: 1080px;*/
+}
+
+nav.navbar-inverse {
+    background-color: #61402D;
+}
+
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.open>a, 
+.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: #814A2D;
+}
+
+.menu-arrow {
+    font-size: 0.75em;
+}
+
+.dropdown-toggle>.active,
+.dropdown-menu,
+.dropdown-menu>li>a {
+    color: white;
+    background-color: #814A2D;
+}
+
+.dropdown-header {
+    color: #b5b5b5;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #814A2D;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #41301D;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #41301D;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #41301D;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #41301D;
+}
+
+.tooltip-inner {
+    background: #41301D;
+}
+
+#main {
+    float: none;
+    min-width: inherit;
+}
+
+
+@media (min-width: 768px) {
+    .tooltip {
+        min-width: 20em;
+    }
+
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #main {
+        float: left;
+        /*background-size: cover*/;
+    }
+}
