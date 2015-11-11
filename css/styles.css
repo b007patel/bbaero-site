@@ -3,13 +3,11 @@ body {
     background-repeat: repeat-y;
     background-size: contain;
     color: white;
-    /*background-size: contain;*/
-    /*min-width: 1440px;*/
-    /*min-height: 1080px;*/
 }
 
 nav.navbar-inverse {
-    background-color: #61402D;
+    /*bg color #61402D with 75% transparency*/
+    background-color: rgba(97, 64, 45, 0.75);
 }
 
 .navbar-inverse .navbar-nav>.active>a, 
@@ -60,7 +58,6 @@ nav.navbar-inverse {
 }
 
 #main {
-    float: none;
     min-width: inherit;
 }
 
@@ -73,10 +70,6 @@ nav.navbar-inverse {
     body {
         background-repeat: no-repeat;
         background-position: center;
-    }
-
-    #main {
-        float: left;
-        /*background-size: cover*/;
+        background-size: cover;
     }
 }
