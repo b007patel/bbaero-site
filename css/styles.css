@@ -1,6 +1,7 @@
 body {
     background: url(../img/bbaero-bkg.jpg) #61402D; 
-    background-repeat: repeat-y;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
     color: white;
 }
@@ -37,6 +38,10 @@ nav.navbar-inverse {
     background-color: #814A2D;
 }
 
+.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: #ffffff;
+}
+
 .tooltip.left .tooltip-arrow {
     border-left-color: #41301D;
 }
@@ -61,6 +66,16 @@ nav.navbar-inverse {
     min-width: inherit;
 }
 
+
+@media (max-width: 767px) {
+    .dropdown-menu {
+        padding: 0;
+    }
+    
+    .dropdown-menu .divider {
+        margin: 0;
+    }
+}
 
 @media (min-width: 768px) {
     .tooltip {
