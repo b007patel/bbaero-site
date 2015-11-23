@@ -1,0 +1,90 @@
+body {
+    background: url(../img/bbaero-bkg.jpg) #61402D; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+}
+
+nav.navbar-inverse {
+    /*bg color #61402D with 75% transparency*/
+    background-color: rgba(97, 64, 45, 0.75);
+}
+
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.open>a, 
+.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: #814A2D;
+}
+
+.menu-arrow {
+    font-size: 0.75em;
+}
+
+.dropdown-toggle>.active,
+.dropdown-menu,
+.dropdown-menu>li>a {
+    color: white;
+    background-color: #814A2D;
+}
+
+.dropdown-header {
+    color: #b5b5b5;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #814A2D;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: #ffffff;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #41301D;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #41301D;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #41301D;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #41301D;
+}
+
+.tooltip-inner {
+    background: #41301D;
+}
+
+#main {
+    min-width: inherit;
+}
+
+
+@media (max-width: 767px) {
+    .dropdown-menu {
+        padding: 0;
+    }
+    
+    .dropdown-menu .divider {
+        margin: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .tooltip {
+        min-width: 20em;
+    }
+
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
