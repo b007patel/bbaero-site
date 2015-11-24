@@ -43,20 +43,6 @@
                         <li><a href="rest/mysql/index.html">This Website</a></li>
                         </ul>
                     </li>
-                    <!-- generic Bootstrap Dropdown menu
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                    -->
                     <li><a href="blog.html" title="Bharat's blog about IT and other matters" data-toggle="tooltip" data-placement="auto right">Blog</a></li>
                 </ul>
             </div>
@@ -67,9 +53,36 @@
        
         <div id="banner" class="clearfix">
         </div>
+         
+   	 	<footer class="footer">
+   	 		<div class="container">
+    			<ul id="footer-imgs">
+    				<li>
+    					<span>
+    						<p class="footer-text">Site powered by: </p>
+    					</span>
+    				</li>
+    				<li>
+    					<span>
+    						<a  href="https://www.positivessl.com/" title="Positive SSL certificate" id="comodoTL" data-toggle="tooltip" data-container="footer" data-placement="top">
+ 								<img src="img/comodo_secure_113x59_transp.png" class="img-responsive center-block"><!--Test-->
+							</a>
+						</span>	
+					</li>
+					
+					<li>
+						<span>
+							<a href="index.html" title="Test image scaling" id="TestIMG" data-toggle="tooltip" data-container="footer" data-placement="top">
+								<img src="img/bpsig.jpg" class="img-responsive center-block">
+							</a>
+						</span>
+					</li>
+				</ul>
+    		</div>
+   		</footer>
         
     </div>
-
+   
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

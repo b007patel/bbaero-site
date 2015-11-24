@@ -1,10 +1,51 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
     background: url(../img/bbaero-bkg.jpg) #61402D; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     color: white;
+	/* Margin bottom by footer height */
+	 margin-bottom: 50px;
 }
+
+.footer {
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	/* Set the fixed height of the footer here */
+  	height: 50px;
+	/*bg color #51302D with 75% transparency*/
+    background-color: rgba(81, 48, 45, 0.75);
+}
+
+.footer-text {
+	margin: 0;
+}
+
+.footer ul {
+	list-style: none;
+}
+
+.footer li span * {
+	position: relative;
+	float: left;
+	display: inline-block;
+	height: 50px;
+}
+
+a#comodoTL {
+	color: #FFFFFF;
+}
+
+a#comodoTL:visited {
+	color: #E278C4;
+}
+
 
 nav.navbar-inverse {
     /*bg color #61402D with 75% transparency*/
@@ -66,7 +107,6 @@ nav.navbar-inverse {
     min-width: inherit;
 }
 
-
 @media (max-width: 767px) {
     .dropdown-menu {
         padding: 0;
@@ -87,4 +127,17 @@ nav.navbar-inverse {
         background-position: center;
         background-size: cover;
     }
+}
+
+@media (min-height: 700px) {
+	body {
+		/* Margin bottom by footer height */
+        margin-bottom: auto;
+	}
+    
+	.footer,
+	.footer li span * {
+		/* Set footer height */
+		height: auto;
+	}
 }
