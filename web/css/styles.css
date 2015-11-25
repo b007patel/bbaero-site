@@ -9,12 +9,32 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     color: white;
+    /* from fixed navbar example */
+    padding-top: 60px;
 	/* Margin bottom by footer height */
 	 margin-bottom: 50px;
 }
 
+#script-warn {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    color: red;
+    background-color: white;
+}
+
+nav {
+    display: none;
+}
+
+#main {
+    display: none;
+    /*background-color: rgba(0, 0, 0, 0.75);*/
+    min-width: inherit;
+}
+
 .footer {
-	position: absolute;
+    position: absolute;
   	bottom: 0;
   	width: 100%;
   	/* Set the fixed height of the footer here */
@@ -41,15 +61,6 @@ body {
 	height: 50px;
 	line-height: 50px;
 }
-
-a#comodoTL {
-	color: #FFFFFF;
-}
-
-a#comodoTL:visited {
-	color: #E278C4;
-}
-
 
 nav.navbar-inverse {
     /*bg color #61402D with 75% transparency*/
@@ -105,10 +116,6 @@ nav.navbar-inverse {
 
 .tooltip-inner {
     background: #41301D;
-}
-
-#main {
-    min-width: inherit;
 }
 
 @media (max-width: 767px) {
