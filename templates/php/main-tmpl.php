@@ -7,16 +7,14 @@
 		<div id="home-page">
 			<h2 class="text-center"><?php echo "$heading"; ?></h2>
 			<div class="row">
-				<div class="col-xs-6"><h3><?php echo "$lhs_heading"; ?></h3></div>
-				<div class="col-xs-6"><h3><?php echo "$rhs_heading"; ?></h3></div>
-			</div>
-			<div class="row">
-				<div id="lhs" class="col-xs-6">
+				<div class="col-xs-12"><h3><?php echo "$lhs_heading"; ?></h3></div>
+				<div id="lhs" class="col-xs-12">
 <?php
 	echo "$lhs_html";
 ?>
 				</div>
-				<div id="rhs" class="col-xs-6">
+				<div class="col-xs-12"><h3><?php echo "$rhs_heading"; ?></h3></div>
+				<div id="rhs" class="col-xs-12">
 <?php
 	echo "$rhs_html";
 ?>

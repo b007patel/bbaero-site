@@ -3,12 +3,13 @@
 
 	<footer class="footer hidden-xs">
  		<div class="container">
-			<ul id="footer-imgs" class="col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+			<ul id="footer-imgs" class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 				<li>
 					<span>
 						<p class="footer-text text-center">This site uses</p>
 					</span>
 				</li>
+				
 				<li>
 					<span>
 						<a  href="https://www.positivessl.com/" title="Positive SSL certificate" id="comodoTL" data-toggle="tooltip" data-container="footer" data-placement="auto top">
@@ -50,6 +51,12 @@
 					</span>	
 				</li>
 				
+				<li>
+					<span>
+						<a class="footer-text text-center" href="about.php#technologies">and more...</a>
+					</span>
+				</li>
+						
 			</ul>
 		</div>
 	</footer>
