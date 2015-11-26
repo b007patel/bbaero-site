@@ -1,8 +1,6 @@
-	<noscript>
-		<div id="script-warn">
+	<div id="script-warn">
 			<h1>Javascript is not enabled. This site needs it running. Please disable any script blockers.</h1>
-		</div>
-	</noscript>
+	</div>
 			  
 	<div id="main" class="container-fluid">
 	

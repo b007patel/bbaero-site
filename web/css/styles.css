@@ -13,7 +13,22 @@ body {
 	/* from fixed navbar example */
 	padding-top: 60px;
 	/* Margin bottom by footer height */
-	 margin-bottom: 50px;
+	margin-bottom: 50px;
+}
+
+/* From http://stackoverflow.com/questions/121203/how-to-detect-if-javascript-is-disabled
+   search for "document.body.class" to find the solution:
+   - set the <body> element's class via JavaScript. Default is .no-js.
+     JavaScript sets it to .js
+   - all js/no-js CSS rules start with the respective <body> class, then list 
+     the affected descendants
+*/
+.js #script-warn {
+	display: none!important;
+}
+
+.no-js #script-warn {
+	display: inherit;
 }
 
 #script-warn {
@@ -24,13 +39,15 @@ body {
 	background-color: rgba(0, 0, 0, 0.75);
 }
 
-nav {
-	display: none;
+.js #main {
+	display: inherit;
+}
+
+.no-js #main {
+	display: none!important;
 }
 
 #main {
-	display: none;
-	/*background-color: rgba(0, 0, 0, 0.75);*/
 	min-width: inherit;
 }
 
@@ -68,13 +85,21 @@ div.row {
 	font-weight: bold;
 }
 
+.js .footer {
+	display: inherit;
+}
+
+.no-js .footer {
+	display: none!important;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
 	height: 50px;
-	/*bg color #51302D with 75% transparency*/
+	/* bg color #51302D with 75% transparency */
 	background-color: rgba(81, 48, 45, 0.75);
 }
 
@@ -97,8 +122,16 @@ div.row {
 	line-height: 50px;
 }
 
+.js nav {
+	display: inherit;
+}
+
+.no-js nav {
+	display: none!important;
+}
+
 nav.navbar-inverse {
-	/*bg color #61402D with 75% transparency*/
+	/* bg color #61402D with 75% transparency */
 	background-color: rgba(97, 64, 45, 0.75);
 }
 
