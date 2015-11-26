@@ -43,9 +43,29 @@ nav {
 	color: #e278c4;
 }
 
+div.row {
+	margin-left: 10px;
+}
+
 .phonetic {
 	color: #e278c4;
 	font-style: italic;	
+}
+
+.fa-smile-o {
+	font-size: 20px;
+	color: black;
+	background-color: yellow;
+}
+
+.glyphicon-heart {
+	font-size: 20px;
+	color: #ff22c4;
+}
+
+#mom-rant {
+	font-size: 20;
+	font-weight: bold;
 }
 
 .footer {
