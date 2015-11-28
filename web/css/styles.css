@@ -29,14 +29,9 @@ body {
 
 .no-js #script-warn {
 	display: inherit;
-}
-
-#script-warn {
 	position: absolute;
 	top: 50%;
-	left: 10%;
-	color: red;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.20);
 }
 
 a {
