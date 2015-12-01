@@ -38,9 +38,13 @@ $( function () {
             }
         });
         
-        // must not redraw earlier than here. Otherwise footer's container
-        // div's width is less than the maximum
-        $( "footer div.container" ).css( "width" , footer_list_width() );
+        // Sometimes footer container width is too narrow at page load.
+        // Change it if it is.
+        var min_width = 695; /* hardcoded width of 75px min width images */
+        if ( $( "a#comodoTL" ).height() < 75 ) {
+            min_width = 558;
+        }
+        $( "footer div.container" ).css( "width" , min_width )
         redraw_footer = true;
     }
 
