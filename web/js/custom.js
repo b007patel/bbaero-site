@@ -38,6 +38,21 @@ $( function () {
             }
         });
         
+        enquire.register( "screen and ( min-height : 700px )", {
+            match : function() {
+                if ( redraw_footer ) {
+                    $( "footer div.container" ).css( "width",
+                             footer_list_width() );
+                }
+            },
+            unmatch : function() {
+                if ( redraw_footer ) {
+                    $( "footer div.container" ).css( "width",
+                             footer_list_width() );
+                }
+            }
+        });
+        
         // Sometimes footer container width is too narrow at page load.
         // Change it if it is.
         var min_width = 695; /* hardcoded width of 75px min width images */
