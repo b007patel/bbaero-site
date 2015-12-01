@@ -3,7 +3,7 @@
 
 	<footer class="footer hidden-xs">
  		<div class="container">
-			<ul id="footer-imgs" class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+			<ul id="footer-imgs">
 				<li>
 					<span>
 						<p class="footer-text text-center">This site uses</p>

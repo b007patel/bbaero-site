@@ -122,6 +122,7 @@ div.row {
 	vertical-align: center;
 	height: 50px;
 	line-height: 50px;
+	margin: 0 3px;
 }
 
 .js nav {
