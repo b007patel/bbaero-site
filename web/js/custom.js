@@ -37,11 +37,11 @@ $( function () {
                 }
             }
         });
+        
+        // must not redraw earlier than here. Otherwise footer's container
+        // div's width is less than the maximum
+        $( "footer div.container" ).css( "width" , footer_list_width() );
+        redraw_footer = true;
     }
-    
-    // must not redraw earlier than here. Otherwise footer's container
-    // div's width is less than the maximum
-    $( "footer div.container" ).css( "width" , footer_list_width() );
-    redraw_footer = true;
 
 } )
