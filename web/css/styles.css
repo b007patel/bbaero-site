@@ -127,6 +127,10 @@ div.row {
 	margin: 0 3px;
 }
 
+span#show-aero a:visited {
+    color: white;
+}
+
 .js nav {
 	display: inherit;
 }

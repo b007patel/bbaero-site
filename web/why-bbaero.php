@@ -10,7 +10,7 @@
 					hard is it to think of a unique site name?!??</p>
 
 					<p>I used my mother's creativity to honor all she's done for me and my family. 
-					<span id="show-aero">Aero, the chocolate bar</span> is filled with bubbles. And ads 
+					<span id="show-aero"><a href="img/bbaero-bkg.jpg" data-lightbox="aero-zoom" data-title="1970's era Rowntree Aero wrapper">Aero, the chocolate bar</a></span> is filled with bubbles. And ads 
 					for it were all over the place in the Seventies. At some point in time one of those 
 					ads inspired my mom to christen me with a nickname. "My bubbly, bubbly Aero!" To 
 					this day, well into adulthood, she still uses that nickname. I did a quick search, 
