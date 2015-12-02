@@ -113,6 +113,8 @@ div.row {
 	list-style: none;
 	padding: 0;
 	margin-bottom: 0;
+	display: flex;
+	justify-content: center;
 }
 
 .footer li span * {
