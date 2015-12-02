@@ -136,8 +136,8 @@ div.row {
 }
 
 nav.navbar-inverse {
-	/* bg color #61402D with 75% transparency */
-	background-color: rgba(97, 64, 45, 0.75);
+	/* bg color #61402D, opaque */
+	background-color: rgb(97, 64, 45);
 }
 
 .navbar-inverse .navbar-nav>.active>a, 
@@ -211,6 +211,12 @@ nav.navbar-inverse {
 		background-position: center;
 		background-size: cover;
 	}
+
+	nav.navbar-inverse {
+		/* bg color #61402D with 75% transparency */
+		background-color: rgba(97, 64, 45, 0.75);
+	}
+
 }
 
 @media (min-height: 700px) {
