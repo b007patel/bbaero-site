@@ -1,7 +1,12 @@
 	<div id="script-warn" class="col-xs-offset-2 col-xs-8">
-			<p>Please wait for a few seconds. The network may be slow.</p>
-			<p>If this is visible after a few seconds, then javascript is not enabled. This site needs 
-				it running. Please disable any script blockers.</p>
+		<p>
+		Please wait for a few seconds. The network may be slow.
+		</p>
+		
+		<p>
+		If this is visible after a few seconds, then javascript is not enabled. This site needs 
+		it running. Please disable any script blockers.
+		</p>
 	</div>
 			  
 	<div id="main" class="container-fluid">
