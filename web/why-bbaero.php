@@ -1,4 +1,7 @@
-<?php include 'php/html-start-tmpl.php';
+<?php 
+	$page_title = "Bubbly Bubbly Aero - Why?";
+
+	include 'php/html-start-tmpl.php';
 
 	include 'php/nav-tmpl.php';
 

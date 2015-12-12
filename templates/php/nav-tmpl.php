@@ -7,11 +7,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand">bbaero - Bharat Patel</a>
+				<a href="index.php" class="navbar-brand" title="Back to Home Page" data-toggle="tooltip" data-placement="auto right">bbaero - Bharat Patel</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 			  <ul class="nav navbar-nav">
-					<li><a href="index.php">Home</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="tooltip-block" title="About this site" data-toggle="tooltip" data-placement="auto left">About <span class="caret"></span></span></a>
 						<ul class="dropdown-menu">

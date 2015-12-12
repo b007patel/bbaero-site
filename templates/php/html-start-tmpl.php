@@ -1,5 +1,7 @@
 <html>
-<title>Bubbly Bubbly Aero - Home</title>
+<title><?php
+	echo "$page_title";
+?></title>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">

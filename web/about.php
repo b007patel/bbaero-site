@@ -1,7 +1,9 @@
-<?php include 'php/html-start-tmpl.php';
+<?php
+	$page_title = "Bubbly Bubbly Aero - The Site Explained";
+	
+	include 'php/html-start-tmpl.php';
 
 	include 'php/nav-tmpl.php';
-
 	$heading = 'About this site';
 	$lhs_heading = 'Why make this website?';
 	$rhs_heading = 'How has this website been made?';
