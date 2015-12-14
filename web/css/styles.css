@@ -95,6 +95,13 @@ div.row {
 	display: none!important;
 }
 
+ul#techlist li img {
+	height: 50px;
+	margin: auto 5px;
+	display: inline-block;
+}
+
+
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -128,7 +135,7 @@ div.row {
 }
 
 span#show-aero a:visited {
-    color: white;
+	color: white;
 }
 
 .js nav {
@@ -202,6 +209,11 @@ nav.navbar-inverse {
 	
 	.dropdown-menu .divider {
 		margin: 0;
+	}
+
+	ul#techlist li img {
+		height: 35px;
+		margin: auto 3px;
 	}
 }
 

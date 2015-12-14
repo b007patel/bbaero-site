@@ -51,9 +51,22 @@ EOD;
 
 	$bottom_html = <<<'EOD'
 					<h3 id="technologies">Technologies used to build this site</h3>
+					<ul id="techlist">
 
-					<ul>
-						<li>Bootstrap</li>
+EOD;
+	
+	foreach ( $tech_imgs as $currILI ) {
+		$ili = new ImageLI( 6, "footer" );
+		$ili->showLabel( true );
+		$ili->setLabel( $currILI["label"] );
+		$ili->setLink( $currILI["link"] );
+		$ili->setCssID( $currILI["cssID"] );
+		$ili->setImageLoc( $currILI["imgloc"] );
+		$bottom_html .= $ili->listItemMarkup();
+	}
+	
+	$bottom_html .= <<<'EOD'
+
 					</ul>
 
 EOD;

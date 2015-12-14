@@ -11,7 +11,7 @@
 			  
 	<div id="main" class="container-fluid">
 	
-		<div id="home-page">
+		<div id="newspaper-page">
 			<h2 class="text-center"><?php echo "$heading"; ?></h2>
 			<div class="row">
 				<div id="lhs" class="col-sm-12 col-md-6">
@@ -39,3 +39,4 @@
 				</div>
 			</div>
 		</div>
+

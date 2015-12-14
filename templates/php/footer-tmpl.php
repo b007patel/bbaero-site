@@ -10,8 +10,6 @@
 				</li>
 
 <?php
-	include "vars.php";
-	
 	foreach ( $footer_imgs as $currILI ) {
 		$ili = new ImageLI( 4, "footer" );
 		$ili->setLabel( $currILI["label"] );
@@ -21,6 +19,11 @@
 		echo $ili->listItemMarkup();
 	}
 ?>
+			    <li>
+			        <span>
+			            <a class="footer-text text-center" href="about.php#technologies">and more...</a>
+			        </span>
+			    </li>
 						
 			</ul>
 		</div>

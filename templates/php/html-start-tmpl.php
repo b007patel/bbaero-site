@@ -11,4 +11,7 @@
 	<link rel="stylesheet" href="css/lightbox.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
+<?php
+    include "php/vars.php";
+?>
 <body class="no-js">

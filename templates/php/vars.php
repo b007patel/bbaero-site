@@ -91,7 +91,10 @@
 			$liMarkup .= str_pad( $liPart, $this->__baseIndent + strlen($liPart), "\t", STR_PAD_LEFT );
 			$liPart = "\t\t<a href=\"$this->__link\" title=\"$this->__label\" id=\"$this->__cssID\" ";
 			$liMarkup .= str_pad( $liPart, $this->__baseIndent + strlen($liPart), "\t", STR_PAD_LEFT );
-			$liMarkup .= "data-toggle=\"tooltip\" data-container=\"$this->__ttContainer\" data-placement=\"auto top\">".PHP_EOL;
+			if ( ! $this->__showLabel ) {
+				$liMarkup .= "data-toggle=\"tooltip\" data-container=\"$this->__ttContainer\" data-placement=\"auto top\"";
+			}
+			$liMarkup .= ">".PHP_EOL;
 			$liPart = "\t\t\t<img src=\"$this->__imgloc\" class=\"img-responsive\">".PHP_EOL;
 			$liMarkup .= str_pad( $liPart, $this->__baseIndent + strlen($liPart), "\t", STR_PAD_LEFT );
 			if ( $this->__showLabel ) {
@@ -108,17 +111,33 @@
 		}
 	}
 
+	function img_cmp( $a, $b ) {
+		if ( $a["cssID"] == $b["cssID"] ) {
+			return 0;
+		}
+		
+		return ( $a["cssID"] < $b["cssID"] ) ? -1 : 1;
+	}
+
 	$footer_imgs = [
 		[ "link" => "https://www.positivessl.com/", "label" => "Positive SSL certificate", 
 			"cssID" => "comodoTL", "imgloc" => "img/comodo_secure_113x59_transp.png" ],
 		[ "link" => "http://www.ubuntu.com/server/", "label" => "Ubuntu 14.04.2 LTS", 
 			"cssID" => "UbuntuMk", "imgloc" => "img/ubuntu-orange-hex.png" ],
 		[ "link" => "https://httpd.apache.org/", "label" => "Apache HTTPD 2.4.7", 
-			"cssID" => "pbApache", "imgloc" => "img/pb-apache.png" ],
+			"cssID" => "ApachePB", "imgloc" => "img/pb-apache.png" ],
 		[ "link" => "https://aws.amazon.com/", "label" => "Amazon Web Services", 
 			"cssID" => "AWSMk", "imgloc" => "img/aws-logo.png" ],
 		[ "link" => "https://getbootstrap.com/", "label" => "Bootstrap 3.5.5", 
 			"cssID" => "BootstrapMk", "imgloc" => "img/bootstrap-solid.svg" ]
-	];	
+	];
+
+	$tech_imgs = $footer_imgs;
+
+	$tech_imgs[] = [ "link" => "https://www.mysql.com/",
+			"label" => "MySQL 5.5.46", "cssID" => "MySQLPB",
+			"imgloc" => "img/pb-mysql.svg" ];
+
+	usort( $tech_imgs, "img_cmp" );
 
  ?>
