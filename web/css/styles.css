@@ -87,6 +87,17 @@ div.row {
 	font-weight: bold;
 }
 
+span.advideo p
+{
+	margin-top: 5%;
+}
+
+span.advideo object {
+	margin: 0 1%;
+	width: 75%;
+	height: 75%;
+}
+
 .js .footer {
 	display: inherit;
 }
@@ -147,8 +158,7 @@ span#show-aero a:visited {
 }
 
 nav.navbar-inverse {
-	/* bg color #61402D, opaque */
-	background-color: rgb(97, 64, 45);
+	background-color: #61402D;
 }
 
 .navbar-inverse .navbar-nav>.active>a, 
@@ -226,11 +236,6 @@ nav.navbar-inverse {
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-	}
-
-	nav.navbar-inverse {
-		/* bg color #61402D with 75% transparency */
-		background-color: rgba(97, 64, 45, 0.75);
 	}
 
 }

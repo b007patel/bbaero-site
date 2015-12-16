@@ -42,7 +42,14 @@
 EOD;
 
 	$rhs_html = <<<'EOD'
-						<p>Aero ads from the past:</p> 
+						<p>Aero ads from the past:</p>
+						<span class="advideo">
+							<p><i>Dare We Compare</i> 1980s, 1990s:</p>
+							<object data="https://www.youtube.com/embed/AvUKX55IAXM"></object>
+							<p><i>Aero is Nothing</i> Movie Theatre 1980s, 1990s:</p>
+							<object data="https://www.youtube.com/embed/XQhsHmXDd9M"></object>
+						
+						</span>
 
 EOD;
 
