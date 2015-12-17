@@ -112,6 +112,10 @@ ul#techlist li img {
 	display: inline-block;
 }
 
+.bbaero_error {
+	background-color: rgba(255, 0, 0, 0.5);
+	font-size: 0.85em;
+}
 
 .footer {
 	position: absolute;

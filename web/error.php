@@ -8,7 +8,7 @@
 	include 'php/error-lib.php';
 
 	$errvals = get_error_vals();
-	$heading = "<span class='error'>Error ";
+	$heading = "<span class='bbaero_error'>HTTP Error ";
 	$heading .= $errvals['code'];
 	$heading .= " - ";
 	$heading .= $errvals['reason'];
