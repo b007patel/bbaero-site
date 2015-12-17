@@ -1,0 +1,52 @@
+###
+# Place this file in the particular directory that needs error redirection
+# (e.g., DocumentRoot, DocumentRoot/projects, DocumentRoot/abc).
+# Rename it by replacing "dot-" with an actual "." .
+# Ensure it is own by the user that runs apache. Also ensure that the
+# directory's resource has "AllowOverride FileList" set instead of the default
+# "None".
+#
+# From http://www.askapache.com/php/php-errordocument.html
+#
+# ErrorDocument: In the event of a problem or error, what the server will return to the client. URLs
+# can begin with a / for local web-paths (relative to DocumentRoot), or be a full URL which the client
+# can resolve. Alternatively, a message can be displayed.  If a malformed request is detected, normal
+# request processing will be immediately halted and the internal error message returned.
+#
+# Prior to version 2.0, messages were indicated by prefixing them with a
+# single unmatched double quote character.
+#
+# The special value default can be used to specify Apache's simple hardcoded message and
+# will restore Apache's simple hardcoded message.
+#
+ErrorDocument 400 /error.php
+ErrorDocument 401 /error.php
+ErrorDocument 402 /error.php
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+ErrorDocument 405 /error.php
+ErrorDocument 406 /error.php
+ErrorDocument 407 /error.php
+ErrorDocument 408 /error.php
+ErrorDocument 409 /error.php
+ErrorDocument 410 /error.php
+ErrorDocument 411 /error.php
+ErrorDocument 412 /error.php
+ErrorDocument 413 /error.php
+ErrorDocument 414 /error.php
+ErrorDocument 415 /error.php
+ErrorDocument 416 /error.php
+ErrorDocument 417 /error.php
+ErrorDocument 422 /error.php
+ErrorDocument 423 /error.php
+ErrorDocument 424 /error.php
+ErrorDocument 426 /error.php
+ErrorDocument 500 /error.php
+ErrorDocument 501 /error.php
+ErrorDocument 502 /error.php
+ErrorDocument 503 /error.php
+ErrorDocument 504 /error.php
+ErrorDocument 505 /error.php
+ErrorDocument 506 /error.php
+ErrorDocument 507 /error.php
+ErrorDocument 510 /error.php

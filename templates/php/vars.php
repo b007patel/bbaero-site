@@ -9,13 +9,13 @@
 		/*BP: for footer baseIndent=4, for technologies ul baseIndent=6
 		BP: for footer container defaults to "footer", ul container="ul"*/
 
-		private $a__label = "";
-		private $a__link = "";
-		private $a__cssID = "";
-		private $a__imgloc = "";
-		private $a__ttContainer = "";
-		private $a__baseIndent = -1;
-		private $a__showLabel = false;
+		private $__label = "";
+		private $__link = "";
+		private $__cssID = "";
+		private $__imgloc = "";
+		private $__ttContainer = "";
+		private $__baseIndent = -1;
+		private $__showLabel = false;
 
 		function __construct( $baseIndent = 1, $ttContainer = "footer" )
 		{

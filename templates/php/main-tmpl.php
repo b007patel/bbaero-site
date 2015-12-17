@@ -13,30 +13,70 @@
 	
 		<div id="newspaper-page">
 			<h2 class="text-center"><?php echo "$heading"; ?></h2>
+<?php
+	$has_lhs_html = trim( $lhs_html ) != '';
+	$has_rhs_html = trim( $rhs_html ) != '';
+	$has_bottom_html = trim( $bottom_html ) != '';
+
+	if ( $has_lhs_html || $has_rhs_html ) {
+		echo <<< 'EOD'
 			<div class="row">
+
+EOD;
+		if ( $has_lhs_html ) {
+			echo <<< 'EOD'
 				<div id="lhs" class="col-sm-12 col-md-6">
-					<h3><?php echo "$lhs_heading"; ?></h3>
+					<h3>
+EOD;
+			echo "$lhs_heading";
+			echo <<< 'EOD'
+</h3>
 					<div class="body-text">
-<?php
-	echo "$lhs_html";
-?>
+
+EOD;
+			echo "$lhs_html";
+			echo <<< 'EOD'
 					</div>
 				</div>
+
+EOD;
+		}
+		if ( $has_rhs_html ) {
+			echo <<< 'EOD'
 				<div id="rhs" class="col-sm-12 col-md-6">
-					<h3><?php echo "$rhs_heading"; ?></h3>
+					<h3>
+EOD;
+			echo "$rhs_heading";
+			echo <<< 'EOD'
+</h3>
 					<div class="body-text">
-<?php
-	echo "$rhs_html";
-?>
+
+EOD;
+			echo "$rhs_html";
+			echo <<< 'EOD'
 					</div>
 				</div>
+
+EOD;
+		}
+		echo <<< 'EOD'
 			</div>
+
+EOD;
+	}
+	if ( $has_bottom_html ) {
+		echo <<< 'EOD'
 			<div class="row">
 				<div class="col-xs-12">
-<?php
-	echo "$bottom_html";
-?>
+
+EOD;
+		echo "$bottom_html";
+		echo <<< 'EOD'
 				</div>
 			</div>
+EOD;
+	}
+?>
+
 		</div>
 
