@@ -121,22 +121,22 @@
 
 	$footer_imgs = [
 		[ "link" => "https://www.positivessl.com/", "label" => "Positive SSL certificate", 
-			"cssID" => "comodoTL", "imgloc" => "img/comodo_secure_113x59_transp.png" ],
+			"cssID" => "comodoTL", "imgloc" => "/img/comodo_secure_113x59_transp.png" ],
 		[ "link" => "http://www.ubuntu.com/server/", "label" => "Ubuntu 14.04.2 LTS", 
-			"cssID" => "UbuntuMk", "imgloc" => "img/ubuntu-orange-hex.png" ],
+			"cssID" => "UbuntuMk", "imgloc" => "/img/ubuntu-orange-hex.png" ],
 		[ "link" => "https://httpd.apache.org/", "label" => "Apache HTTPD 2.4.7", 
-			"cssID" => "ApachePB", "imgloc" => "img/pb-apache.png" ],
+			"cssID" => "ApachePB", "imgloc" => "/img/pb-apache.png" ],
 		[ "link" => "https://aws.amazon.com/", "label" => "Amazon Web Services", 
-			"cssID" => "AWSMk", "imgloc" => "img/aws-logo.png" ],
+			"cssID" => "AWSMk", "imgloc" => "/img/aws-logo.png" ],
 		[ "link" => "https://getbootstrap.com/", "label" => "Bootstrap 3.5.5", 
-			"cssID" => "BootstrapMk", "imgloc" => "img/bootstrap-solid.svg" ]
+			"cssID" => "BootstrapMk", "imgloc" => "/img/bootstrap-solid.svg" ]
 	];
 
 	$tech_imgs = $footer_imgs;
 
 	$tech_imgs[] = [ "link" => "https://www.mysql.com/",
 			"label" => "MySQL 5.5.46", "cssID" => "MySQLPB",
-			"imgloc" => "img/pb-mysql.svg" ];
+			"imgloc" => "/img/pb-mysql.svg" ];
 
 	usort( $tech_imgs, "img_cmp" );
 

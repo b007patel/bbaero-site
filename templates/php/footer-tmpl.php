@@ -21,7 +21,7 @@
 ?>
 			    <li>
 			        <span>
-			            <a class="footer-text text-center" href="about.php#technologies">and more...</a>
+			            <a class="footer-text text-center" href="/about.php#technologies">and more...</a>
 			        </span>
 			    </li>
 						
