@@ -135,8 +135,11 @@
 	$tech_imgs = $footer_imgs;
 
 	$tech_imgs[] = [ "link" => "https://www.mysql.com/",
-			"label" => "MySQL 5.5.46", "cssID" => "MySQLPB",
-			"imgloc" => "/img/pb-mysql.svg" ];
+			"label" => "MariaDB using MySQL 5.5 interfaces", 
+			"cssID" => "MySQLPB", "imgloc" => "/img/pb-mysql.svg" ];
+	$tech_imgs[] = [ "link" => "https://www.mariadb.org/",
+			"label" => "MariaDB 5.5.46", "cssID" => "MariaDBPB",
+			"imgloc" => "/img/pb-mariadb.png" ];
 
 	usort( $tech_imgs, "img_cmp" );
 
