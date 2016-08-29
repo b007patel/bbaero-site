@@ -5,26 +5,28 @@ package test;
 
 import test.pageobjects.ChemRxnBalancer_PG_POF;
 
+import java.io.FileInputStream;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 import org.jsoup.nodes.*;
 import org.jsoup.*;
 
 /* TODO:
- - get WebDriver "dynamically" (e.g., props file, db table based on hostname)
+ - get WebDriver "dynamically" (currently working with props file/-D switch
+   Maybe use DB table based on hostname later?)
  - get full suite/case names into TestNG html output in test-output 
-   dir via reporter classes
+   directory via reporter classes
  - add DB-based TestNG reporter classes*/
 
 public class ChemRxnTest {
 
     static WebDriver drv;
+    Class<?> drvClass;
     ChemRxnBalancer_PG_POF CRBPage;
     PreparedStatement vsteps_ps = null, vrxns_ps = null;
     ArrayList<String> vs_types, suite_descs;
@@ -128,6 +130,16 @@ public class ChemRxnTest {
     
     @BeforeTest
     public void beforeTest() throws Throwable {
+        // use a Java cmd line -D property to set props file
+        String webclipropsfile = System.getProperty("tptest.wcprop", 
+                System.getenv("HOME") + "/webcli.props");
+
+        Properties webcliprops = new Properties();
+        FileInputStream fis = new FileInputStream(webclipropsfile);
+        webcliprops.loadFromXML(fis);
+
+        String drvClassName = webcliprops.getProperty("web_driver_class");
+        drvClass = ClassLoader.getSystemClassLoader().loadClass(drvClassName);
         TestDB.connect();
         vrxns_ps = TestDB.prepStmt("select reaction_type, vr_text " + 
                 "from verify_reaction where case_id = ?");
@@ -142,7 +154,7 @@ public class ChemRxnTest {
                     vstypes_rs.getString("type_name"));
         }
         ResultSet suitedescs_rs = TestDB.execSql("select " + 
-            "suite_id, suite_desc from test_suite");
+                "suite_id, suite_desc from test_suite");
         suite_descs = new ArrayList<String>();
         suite_descs.add("");
         while (suitedescs_rs.next()) {
@@ -153,18 +165,15 @@ public class ChemRxnTest {
     
     @BeforeMethod
     public void beforeMethod() throws Throwable {
-        drv = new ChromeDriver();
+        drv = (WebDriver) drvClass.newInstance();
         drv.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         drv.get("https://bbaero.freeddns.org/tutor-prez/web/chem/balance.php");
         CRBPage = PageFactory.initElements(drv, ChemRxnBalancer_PG_POF.class);
     }
     
     @Test(dataProvider="fromDB", dataProviderClass=TestDB.Provider.class)
-    public void test(Integer sidobj, Integer cidobj, String case_desc, 
+    public void test(int sid, int cid, String case_desc, 
                 String case_exec) throws Throwable {
-        int sid = sidobj.intValue();
-        int cid = cidobj.intValue();
-        
         System.out.format("Executing suite %d: %s, case %d: %s\n", sid, 
                 suite_descs.get(sid), cid, case_desc);
         CRBPage.txt_Reaction.sendKeys(case_exec);

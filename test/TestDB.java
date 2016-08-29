@@ -42,8 +42,7 @@ public class TestDB {
                     cdesc = case_rs.getString("case_desc");
                     cexec = case_rs.getString("case_exec");
                         
-                    rawrv.add(new Object[]{new Integer(suite_id), 
-                            new Integer(case_id), cdesc, cexec});
+                    rawrv.add(new Object[]{suite_id, case_id, cdesc, cexec});
                 }
             }
             
@@ -81,7 +80,12 @@ public class TestDB {
     }
     
     public static int connect() throws IOException, SQLException {
-        return TestDB.connect("");
+        String dbprops = System.getProperty("tptest.dbprop", "");
+        if (dbprops.length() > 0) {
+            return TestDB.connect(dbprops);
+        } else {
+            return TestDB.connect("");
+        }
     }
 
     public static ResultSet execSql(String sqlstr) throws SQLException {
