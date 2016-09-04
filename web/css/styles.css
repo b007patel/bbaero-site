@@ -206,6 +206,10 @@ span#show-aero a:visited {
 	display: none!important;
 }
 
+.navbar-toggle {
+	float: left;
+}
+
 nav.navbar-inverse {
 	background-color: #61402D;
 }
