@@ -1,4 +1,3 @@
-	<!-- This will eventually be the navbar for tutor-prez. Although it may go on the side instead.--> 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">

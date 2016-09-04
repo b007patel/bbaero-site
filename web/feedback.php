@@ -68,7 +68,7 @@ if(!empty($_SESSION['freecap_word_hash']) && !empty($_POST['rcword']))
 	$lhs_heading = '';
 	//$ferr = fopen('phperrs', 'a');
 	$dt = new DateTime();
-	fwrite($ferr, $dt->format("Y-M-d, H:i:s").$nl."========".$nl);
+	//fwrite($ferr, $dt->format("Y-M-d, H:i:s").$nl."========".$nl);
 	if ($word_ok!==false) {
 		if ($word_ok=="yes") {
 			//fwrite($ferr, 'for word '.$fcword.' sess lhs == rhs'.$nl);
