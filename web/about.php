@@ -1,9 +1,9 @@
 <?php
 	$page_title = "Bubbly Bubbly Aero - The Site Explained";
 	
-	include 'php/html-start-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/html-start-tmpl.php';
 
-	include 'php/nav-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/nav-tmpl.php';
 	$heading = 'About this site';
 	$lhs_heading = 'Why make this website?';
 	$rhs_heading = 'How has this website been made?';
@@ -17,20 +17,19 @@
 						</p>
 
 						<p>
-						This site showcases most of my IT knowledge via various implementations of 
-						an example <a href="projects/index.php">project</a>. I use an Amazon Web 
-						Services (AWS) Ubuntu instance to host the website and any associated 
-						backend servers (e.g., databases, application servers).
+						This site showcases most of my IT knowledge via various example <a href="projects/index.php">projects</a>.
+						I use an Amazon Web Services (AWS) Ubuntu instance to host the website and any
+						associated backend servers (e.g., databases, application servers).
 						</p>
 
 						<p>
 						Whenever possible, I will try to justify my design solutions. All the 
 						source for the examples is viewable in my 
-						<a href="https://github.com/b007patel/???">GitHub repository</a>.
+						<a href="https://github.com/b007patel/">GitHub repository</a>.
 						</p>
 
 						<p>
-						<!-- feedback link? maybe refer to one in projects folder? -->
+						Thoughts? Comments? Feel free to make them <a href="feedback.php">here.</a>
 						</p>
 
 EOD;
@@ -71,8 +70,8 @@ EOD;
 
 EOD;
 
-	include 'php/main-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/main-tmpl.php';
 	
-	include 'php/footer-tmpl.php'; 
+	include $_SERVER["DOCUMENT_ROOT"].'/php/footer-tmpl.php'; 
 	
-	include 'php/html-end-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/html-end-tmpl.php';

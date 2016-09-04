@@ -1,9 +1,9 @@
 <?php 
 	$page_title = "Bubbly Bubbly Aero - Why?";
 
-	include 'php/html-start-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/html-start-tmpl.php';
 
-	include 'php/nav-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/nav-tmpl.php';
 
 	$heading = '"bbaero?" What gives?';
 	$lhs_heading = 'A shout-out to my roots';
@@ -58,8 +58,8 @@ EOD;
 
 EOD;
 
-	include 'php/main-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/main-tmpl.php';
 	
-	include 'php/footer-tmpl.php'; 
+	include $_SERVER["DOCUMENT_ROOT"].'/php/footer-tmpl.php'; 
 	
-	include 'php/html-end-tmpl.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/php/html-end-tmpl.php';

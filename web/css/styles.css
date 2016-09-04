@@ -87,6 +87,51 @@ div.row {
 	font-weight: bold;
 }
 
+button,
+html input,
+textarea {
+	color: black;
+}
+
+div#formdiv {
+	min-width: 90%;
+	min-height: 75%;
+}
+
+div#formdiv ul.fbfieldlist {
+	max-height: 10%;
+}
+
+div#formdiv ul#fbtextlist {
+	min-height: 90%;
+}
+
+input.fbfield {
+	margin-left: 2%;
+}
+
+input#fbsubject {
+	margin-left: 19%;
+}
+
+ul.fbfieldlist, ul#fbtextlist {
+	list-style: none;
+	min-width: 100%;
+}
+
+ul.fbfieldlist li {
+	display: inline-block;
+}
+
+li#fbtextli {
+	min-height: 50%;
+}
+
+#fbtext {
+	min-width: 80%;
+	min-height: 60%;
+}
+
 span.aerovideo p
 {
 	margin-top: 5%;
@@ -225,6 +270,14 @@ nav.navbar-inverse {
 		margin: 0;
 	}
 
+	input.fbfield {
+		min-width: 95%;
+	}
+
+	input#fbsubject {
+		min-width: 140%;
+	}
+
 	ul#techlist li img {
 		height: 35px;
 		margin: auto 3px;
@@ -234,6 +287,14 @@ nav.navbar-inverse {
 @media (min-width: 768px) {
 	.tooltip {
 		min-width: 20em;
+	}
+
+	input.fbfield {
+		min-width: 200%
+	}
+
+	input#fbsubject {
+		min-width: 250%;
 	}
 
 	body {

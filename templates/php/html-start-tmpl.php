@@ -1,6 +1,11 @@
 <html>
 <title><?php
 	echo "$page_title";
+	if (strpos(strtolower($page_title), "feedback") === false) {
+		if (!empty($_SESSION['email_result'])) {
+			unset($_SESSION['email_result']);
+		}
+	}
 ?></title>
 <head>
 	<meta charset="UTF-8">
@@ -12,6 +17,6 @@
 	<link rel="stylesheet" href="/css/styles.css">
 </head>
 <?php
-    include "php/vars.php";
+    include $_SERVER["DOCUMENT_ROOT"].'/php/vars.php';
 ?>
 <body class="no-js">
