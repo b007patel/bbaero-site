@@ -67,7 +67,7 @@ if(!empty($_SESSION['freecap_word_hash']) && !empty($_POST['rcword']))
 	$heading = 'Feedback';
 	$lhs_heading = '';
 	//$ferr = fopen('phperrs', 'a');
-	$dt = new DateTime();
+	//$dt = new DateTime();
 	//fwrite($ferr, $dt->format("Y-M-d, H:i:s").$nl."========".$nl);
 	if ($word_ok!==false) {
 		if ($word_ok=="yes") {
@@ -79,13 +79,6 @@ if(!empty($_SESSION['freecap_word_hash']) && !empty($_POST['rcword']))
 			//fwrite($ferr, 'is "'.$sess_lhs.'", rhs '.$nl);
 			//fwrite($ferr, 'is "'.$sess_rhs.'"'.$nl.$nl);
 			$lhs_heading = 'Sorry, the word is wrong, try again.';
-			/*echo '<script type="text/javascript">',
-				'try {cimg = document.getElementById("captcha_img");', 
-				'imgsrc = cimg.src;',
-				'imgsrc = imgsrc.substring(0,imgsrc.lastIndexOf(".")+4);',
-				'cimg.src = imgsrc + "?" + Math.round(Math.random()*100000);}',
-				'catch(e) {console.log("Whoops! no captcha img!");}',
-				'</script>';*/
 			echo '<script type="text/javascript">',
 				'try {new_freecap();}',
 				'catch(e) {console.log("Whoops! no captcha img!");}',
@@ -118,8 +111,7 @@ if(!empty($_SESSION['freecap_word_hash']) && !empty($_POST['rcword']))
 						<ul id="fbtextlist">
 							<li><label id="commentslabel">Comments:</label></li>
 							<li><textarea id="fbtext" name="comment" form="feedbackform"></textarea></li>
-							<li><img style="display:none;" src="freecap.php" id="freecap"></img></li>
-							<li><img src="cpimg.png" id="captcha_img"></img></li>
+							<li><img src="freecap.php" id="freecap"></img></li>
 							<li>If you can't read the word, <a href="#" onClick="this.blur();new_freecap();return false;">click here</a></li>
 							<li>Word above:<input type="text" name="rcword"></input></li>
 							<li><input type="submit" value="Send comment"></input></li>

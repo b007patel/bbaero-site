@@ -280,22 +280,21 @@ function sendImage($pic)
 {
 	// output image with appropriate headers
 	//header(base64_decode("WC1DYXB0Y2hhOiBmcmVlQ2FwIDEuNCAtIHd3dy5wdXJlbWFuZ28uY28udWs="));
-	// BP - save image. Use file to output, since stream doesn't work
-	imagepng($GLOBALS['im1'], 'cpimg.png');
+	// BP - remove content headers, then it works
 	switch($GLOBALS['output'])
 	{
 		// add other cases as desired
 		case "jpg":
-			header("Content-Type: image/jpeg");
+			//header("Contt-Type: image/jpeg");
 			ImageJPEG($pic);
 			break;
 		case "gif":
-			header("Content-Type: image/gif");
+			//header("Contt-Type: image/gif");
 			ImageGIF($pic);
 			break;
 		case "png":
 		default:
-			header("Content-Type: image/png");
+			//header("Contt-Type: image/png");
 			ImagePNG($pic);
 			break;
 	}
@@ -323,7 +322,8 @@ if($use_dict==1)
 	$words = @file($dict_location);
 	$word = strtolower($words[$GLOBALS['rand_func'](0,sizeof($words)-1)]);
 	// cut off line endings/other possible odd chars
-	$word = ereg_replace("[^a-z]","",$word);
+	//$word = ereg_replace("[^a-z]","",$word);
+	$word = preg_replace("[^a-z]","",$word);
 	// might be large file so forget it now (frees memory)
 	$words = "";
 	unset($words);
@@ -580,7 +580,7 @@ function getRandomColour($in_img) {
 
 if($col_type==0)
 {
-	$text_colout2 = getRandomColour($GLOBALS['im2']);
+	$text_colour2 = getRandomColour($GLOBALS['im2']);
 }
 
 // write each char in different font
@@ -588,7 +588,7 @@ for($i=0 ; $i<strlen($word) ; $i++)
 {
 	if($col_type==1)
 	{
-		$text_colout2 = getRandomColour($GLOBALS['im2']);
+		$text_colour2 = getRandomColour($GLOBALS['im2']);
 	}
 
 	$j = $GLOBALS['rand_func'](0,sizeof($font_locations)-1);
