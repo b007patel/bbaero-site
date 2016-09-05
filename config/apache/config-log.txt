@@ -1,0 +1,10 @@
+[Sept 4, 2016]
+-- enabled PHP-FPM, disabled per-process mod_php
+-- performance is much quicker
+- removed php.load/.conf symlinks (SLs) from mods-enabled
+- added proxy.load/.conf and proxy_fcgi SLs to mods-enabled
+- added a ProxyPass directive to tell Apache to forward php's to php5-fpm
+- installed php5-fpm package
+- changed php5-fpm's default port to 19000
+- 
+- 
