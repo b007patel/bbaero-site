@@ -1,0 +1,12 @@
+Sept 7, 2016
+- added /etc/tomcat7/userenv.bp to set some environment variables for
+  tomcat
+-- export DISPLAY=:99 so that headless Selenium testing can run using
+  the backgrounded Xvfb instance
+-- support for adding JVM options as needed (e.g., "-verbose:class")
+- occasionally (usually whenever template/php/* are modified), the following
+  set of commands must be run to refresh /var/www/testlogs/runtest.html:
+--- cd ~/gitrepo/bbaero-site/web
+--- ./change_tmpls.sh
+--- sudo -u tomcat7 cp runtest.html /var/www/testlogs/
+--- I have run this already, so it does not need to be run again...yet
