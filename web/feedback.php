@@ -113,7 +113,7 @@ EOD;
 	$bottom_html .= str_repeat(chr(9), 6).'<div id="form_container">'.$nl;
 	$bottom_html .= str_repeat(chr(9), 7).'<form id="feedbackform" action="'.$_SERVER['PHP_SELF'].'" method="post">'.$nl;
 	$bottom_html .= <<<'EOD'
-							<div><label class="widelabel">Your e-mail:</label><input id="fbemail" name="email" class="fbfield" form="feedbackform"></input></div>
+							<div><label class="widelabel">Your e-mail:</label><input id="fbemail" name="email" type="email" class="fbfield" form="feedbackform"></input></div>
 							<div><label>Subject:</label><input id="fbsubject" name="subject" class="fbfield" form="feedbackform"></input></div>
 							<div><label id="fbcommentslabel">Comments:</label></div>
 							<div><textarea id="fbtext" name="comment" form="feedbackform"></textarea></div>
