@@ -93,43 +93,37 @@ textarea {
 	color: black;
 }
 
-div#formdiv {
-	min-width: 90%;
-	min-height: 75%;
-}
-
-div#formdiv ul.fbfieldlist {
-	max-height: 10%;
-}
-
-div#formdiv ul#fbtextlist {
+div#form_container {
+	margin: 0 auto;
 	min-height: 90%;
 }
 
-input.fbfield {
-	margin-left: 2%;
-}
-
-input#fbsubject {
-	margin-left: 19%;
-}
-
-ul.fbfieldlist, ul#fbtextlist {
-	list-style: none;
-	min-width: 100%;
-}
-
-ul.fbfieldlist li {
-	display: inline-block;
-}
-
-li#fbtextli {
-	min-height: 50%;
-}
-
 #fbtext {
-	min-width: 80%;
-	min-height: 60%;
+	width: 100%;
+	min-height: 30%
+}
+
+#rcword {
+	margin-left: 0.5em;
+}
+
+form div label {
+    /* To make sure that all labels have the same size and alignment */
+    display: inline-block;
+    width: 15%;
+    text-align: left;
+}
+
+label#fbcommentslabel {
+	text-align: left;
+}
+
+form div + div {
+	margin-top: 0.5em;
+}
+
+.button {
+	margin-top: 1em;
 }
 
 span.aerovideo p
@@ -275,12 +269,21 @@ nav.navbar-inverse {
 		margin: 0;
 	}
 
+	.widelabel {
+		width: 40%;
+	}
+
 	input.fbfield {
 		min-width: 95%;
 	}
 
-	input#fbsubject {
-		min-width: 140%;
+	div#form_container {
+		min-width: 100%;
+	}
+
+	#fbtext {
+		min-width: 75%;
+		min-height: 70%
 	}
 
 	ul#techlist li img {
@@ -295,11 +298,11 @@ nav.navbar-inverse {
 	}
 
 	input.fbfield {
-		min-width: 200%
+		width: 83%;
 	}
 
-	input#fbsubject {
-		min-width: 250%;
+	div#form_container {
+		max-width: 60%;
 	}
 
 	body {
