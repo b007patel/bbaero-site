@@ -1,0 +1,12 @@
+- firefox (shouldn't need, since the driver should be the same 
+version as the browser, unlike Chrome)
+--- "C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -v | more
+--- note the "| more" is key. See 
+
+for details (accessed on Sept 7, 2016)
+
+- Chrome
+--- no command switch like "google-chrome -v" seems available
+--- however, reading "C:\Program Files (x86)\Google\Chrome\
+Application\chrome.VisualElementsManifest.xml" should work
+

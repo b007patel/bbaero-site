@@ -1,0 +1,17 @@
+#/bin/bash
+
+brinfo=/var/www/browser-info.txt
+gcinfo=`google-chrome --version  | cut -c 8-80 | sed -e "s/e /e v/g"`
+
+echo ${gcinfo} | diff ${brinfo} - > /dev/null 2>&1
+rc=${?}
+
+if [ ${rc} -ne 0 ]; then
+	#echo "${0}: Browser info has changed!!"
+	echo "Browser info has changed!!" 2>&1
+	echo ${gcinfo} | diff ${brinfo} -  2>&1
+	echo "" 2>&1
+	echo "Changing browser info to ${gcinfo}" 2>&1
+	echo ${gcinfo} > ${brinfo}
+fi
+
