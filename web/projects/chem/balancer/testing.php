@@ -6,7 +6,7 @@
 	include $_SERVER["DOCUMENT_ROOT"].'/php/nav-tmpl.php';
 
 	$heading = 'Testing of the Chemical Reaction Balancer';
-	$toplink = '<h4>Note: to run headless tests on this web server go to the <a href="runtest.html">run tests</a> page to start them.</h4>';
+	$toplink = '<h4>Note: to run headless tests on this web server go to the <a href="runtest.php">run tests</a> page to start them.</h4>';
 	$lhs_heading = 'Considerations';
 	$rhs_heading = 'Approach';
 	$lhs_html = <<<'EOD'
@@ -64,7 +64,7 @@ EOD;
 						<p>
 						I wanted to have the tests start from a web browser, and run in a headless 
 						setup on the web server. Because I decided to use Java, I run the headless 
-						tests via a servlet. Go to the <a href="runtest.html">run tests</a> page to start them.
+						tests via a servlet. Go to the <a href="runtest.php">run tests</a> page to start them.
 						</p>
 
 EOD;

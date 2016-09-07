@@ -1,10 +1,9 @@
 <?php 
 	$page_title = "bbaero - Run chem balancer test";
-	$docroot='/home/ubuntu/gitrepo/bbaero-site/web';
 
-	include $docroot.'/php/html-start-tmpl.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/php/html-start-tmpl.php';
 
-	include $docroot.'/php/nav-tmpl.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/php/nav-tmpl.php';
 
 	$heading = 'Running chem balancer test suite';
 	$lhs_heading = '';
@@ -26,9 +25,9 @@ EOD;
 
 EOD;
 
-	include $docroot.'/php/main-tmpl.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/php/main-tmpl.php';
 	
-	include $docroot.'/php/footer-tmpl.php'; 
+	include $_SERVER['DOCUMENT_ROOT'].'/php/footer-tmpl.php'; 
 
 	echo<<<'EJS'
 	<!-- custom test execution script -->
@@ -40,4 +39,4 @@ EOD;
 	</script>
 	
 EJS;
-	include $docroot.'/php/html-end-tmpl.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/php/html-end-tmpl.php';
