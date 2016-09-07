@@ -19,6 +19,9 @@
 
 						<p>
 						I assumed that <ul>
+                        <li>because this project will be used in tutoring, I designed it "large-screen 
+                        first", versus the standard "mobule first" technique used in designing most of the 
+                        bbaero site. 
 						<li>only simple reactions are to be balanced.</li>
 						<ul><li>Half-cell reactions and hard-to-balance reactions will fail to balance, 
 						even though they may be able to be balanced</li>

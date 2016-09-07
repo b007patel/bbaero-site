@@ -7,7 +7,7 @@
 
 	$heading = 'Welcome to bbaero!';
 	$lhs_heading = 'Bharat Patel\'s website';
-	$rhs_heading = '';
+	$rhs_heading = 'About this site';
 	$lhs_html = <<<'EOD'
 						<p>
 						Thanks for visiting! This site is a platform for me (Bharat, pronounced <span 
@@ -15,8 +15,11 @@
 						</p>
 
 EOD;
-	$rhs_html = <<<'EOD'
 
+	$rhs_html = <<<'EOD'
+						<p>
+						Please visit the <a href="about.php">about</a> page to learn more about this site.
+                        </p>
 
 EOD;
 
