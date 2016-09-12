@@ -4,9 +4,29 @@ Sept 7, 2016
 -- export DISPLAY=:99 so that headless Selenium testing can run using
   the backgrounded Xvfb instance
 -- support for adding JVM options as needed (e.g., "-verbose:class")
+
 - occasionally (usually whenever template/php/* are modified), the following
   set of commands must be run to refresh /var/www/testlogs/runtest.html:
 --- cd ~/gitrepo/bbaero-site/web
 --- ./change_tmpls.sh
 --- sudo -u tomcat7 cp runtest.html /var/www/testlogs/
 --- I have run this already, so it does not need to be run again...yet
+
+Sept 12, 2016
+- made changes to support MySQL connection pooling
+--- added a JDBC resource ChemTestDB as a datasource (i.e., connection pool)
+  in Tomcat's main context.xml, /var/lib/tomcat7/conf/context.xml:
+
+  <Resource name="jdbc/ChemTestDB" auth="Container" type="javax.sql.DataSource"
+               maxActive="30" maxIdle="10" maxWait="10000"
+               username="root" password="admin" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost/chemtest"/>
+
+--- in order for the pool to start OK, needed to add mysql-connector...jar to
+   /usr/share/java, then make a symlink to it in /usr/share/tomcat/lib
+
+- added support for Tomcat JVM to start a local Java debugger (jdb) listener
+--- support for adding JVM options BEFORE existing options (needed for starting
+  local JDB listener)
+--- added new environment variable to /etc/tomcat7/userenv.bp for the new JVM
+  options for local JDB support
