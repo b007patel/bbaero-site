@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	background: url(../img/bbaero-bkg.jpg) #61402D; 
+	background: url(../img/bbaero-bkg.jpg) #61402D;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -20,7 +20,7 @@ body {
    search for "document.body.class" to find the solution:
    - set the <body> element's class via JavaScript. Default is .no-js.
      JavaScript sets it to .js
-   - all js/no-js CSS rules start with the respective <body> class, then list 
+   - all js/no-js CSS rules start with the respective <body> class, then list
      the affected descendants
 */
 .js #script-warn {
@@ -35,7 +35,7 @@ body {
 }
 
 a {
-	color: inherit;	
+	color: inherit;
 }
 
 a:hover {
@@ -55,7 +55,7 @@ a:hover {
 }
 
 #main a {
-	text-decoration: underline;	
+	text-decoration: underline;
 }
 
 #main a:visited {
@@ -68,7 +68,7 @@ div.row {
 
 .phonetic {
 	color: #e278c4;
-	font-style: italic;	
+	font-style: italic;
 }
 
 .fa-smile-o {
@@ -108,10 +108,10 @@ div#form_container {
 }
 
 form div label {
-    /* To make sure that all labels have the same size and alignment */
-    display: inline-block;
-    width: 15%;
-    text-align: left;
+	/* To make sure that all labels have the same size and alignment */
+	display: inline-block;
+	width: 15%;
+	text-align: left;
 }
 
 label#fbcommentslabel {
@@ -188,6 +188,59 @@ ul#techlist li img {
 	margin: 0 3px;
 }
 
+.tf_hdr {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.grpbox {
+	min-width: 300px;
+	font-size: larger;
+	display: block;
+	border: 2px solid white;
+}
+
+.grpbox label {
+	display: block;
+	min-width: 267px;
+	margin-left: 5%;
+}
+
+.grpbox label span {
+	vertical-align: middle;
+}
+
+#cust_pct {
+	width: 2em;
+	height: 1em;
+	margin-left: 0.5em;
+	vertical-align: -0.1em;
+}
+
+.gb_exp_text {
+	font-size: larger;
+}
+
+input[type="radio"] {
+	margin-top: -1;
+	margin-bottom: -1;
+	margin-right: 0.25em;
+}
+
+input[type="radio"] + span:before {
+	display: inline-block;
+	vertical-align: -0.2em;
+	border-radius: 1em;           /*hard border*/
+	border: 0.125em solid #fff;
+	width: 1em;
+	height: 1em;
+}
+
+button#teststart {
+	width: 110px;
+	margin-top: 1em;
+}
+
 span#show-aero a:visited {
 	color: white;
 }
@@ -209,11 +262,11 @@ nav.navbar-inverse {
 	background-color: #61402D;
 }
 
-.navbar-inverse .navbar-nav>.active>a, 
-.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
 .navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.open>a, 
-.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:focus,
 .navbar-inverse .navbar-nav>.open>a:hover {
 	background-color: #814A2D;
 }
@@ -264,7 +317,7 @@ nav.navbar-inverse {
 	.dropdown-menu {
 		padding: 0;
 	}
-	
+
 	.dropdown-menu .divider {
 		margin: 0;
 	}
@@ -284,6 +337,31 @@ nav.navbar-inverse {
 	#fbtext {
 		min-width: 75%;
 		min-height: 70%
+	}
+
+	form[name='testform'] {
+		min-width: 100%;
+	}
+
+	input[type="radio"] {
+		vertical-align: -0.3em;
+	}
+
+	.grpbox, .gb_exp_text {
+		font-size: small;
+	}
+
+	.tf_hdr {
+		font-size: normal;;
+	}
+
+	#testform_lhs_hdr {
+		width: 100%;
+		margin-bottom: 0.25em;
+	}
+
+	#cust_pct {
+		height: 2em;
 	}
 
 	ul#techlist li img {
@@ -319,7 +397,7 @@ nav.navbar-inverse {
 			/* Margin bottom by footer height */
 			margin-bottom: 75px;
 		}
-		
+
 		.footer,
 		.footer li span * {
 			/* Set the fixed height of the footer here */
