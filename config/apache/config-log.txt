@@ -1,10 +1,62 @@
+[Sept 17, 2016]
+- At this time it seems likes too much hassle to upgrade to Ubuntu 16.0.4 LTS
+ (Xenial Xerus)
+- To support "Option Indexes" and proxy_fcgi at the same time, though, upgraded
+ Apache from 2.4.7 to 2.4.23:
+    # Install Apache packages from a PPA by Ondřej Surý's.
+    sudo add-apt-repository -y ppa:ondrej/apache2
+    sudo apt-get update
+    sudo apt-get -y install apache2
+
+- made minor changes to a few config files, as suggested by the new defaults
+- after upgrading to Apache 2.4.23 made the following changes to support
+  testlog dir listing, while banning other listings
+--- the following new/revised source files are needed for these changes to work
+  properly:
+    - web/js/index.js
+    - web/css/index.css
+    - web/error.php
+--- after "HeaderName" directive in mods-enables/autoindex.conf, added
+    # BP include Javascript to reveal page when dir listing available
+    IndexHeadInsert "<script src=\"/js/index.js\"></script>"
+
+--- also in autoindex.conf, replaced
+    IndexIgnore .??* *~ *# RCS CVS *,v *,t
+
+   with
+    # BP suppress directory listings
+    #IndexIgnore .??* *~ *# RCS CVS *,v *,t
+    IndexIgnore *
+    IndexStyleSheet "/css/index.css"
+
+    # BP allow directory listing only for testlogs
+    <Directory /var/www/testlogs>
+            DirectoryIndex disabled
+            Options +Indexes
+            IndexIgnoreReset ON
+            AllowOverride None
+    </Directory>
+
+--- in sites-enabled/default_ssl.conf, removed the ProxyPassMatch line below
+  the "added to forward PHP ..." comment with
+    # BP - added to forward PHP requests to PHP-FPM server
+    <FilesMatch \.phps$>
+          SetHandler application/x-httpd-php-source
+    </FilesMatch>
+    <FilesMatch \.php$>
+             SetHandler "proxy:fcgi://127.0.0.1:19000"
+    </FilesMatch>
+
+
 [Sept 4, 2016]
 -- enabled PHP-FPM, disabled per-process mod_php
 -- performance is much quicker
 - removed php.load/.conf symlinks (SLs) from mods-enabled
 - added proxy.load/.conf and proxy_fcgi SLs to mods-enabled
 - added a ProxyPass directive to tell Apache to forward php's to php5-fpm
+    # from https://wiki.mikejung.biz/Php-fpm accessed on 2016-09-04
+    ProxyPassMatch ^/(.*.php(/.*)?)$ fcgi://127.0.0.1:19000/var/www/$1
+
 - installed php5-fpm package
 - changed php5-fpm's default port to 19000
-- 
-- 
+

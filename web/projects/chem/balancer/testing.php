@@ -6,7 +6,12 @@
 	include $_SERVER["DOCUMENT_ROOT"].'/php/nav-tmpl.php';
 
 	$heading = 'Testing of the Chemical Reaction Balancer';
-	$toplink = '<h4>Note: to run headless tests on this web server go to the <a href="runtest.php">run tests</a> page to start them.</h4>';
+	$toplink = <<<'ETL'
+<h4>Note: to run headless tests on this web server go to the <a href="runtest.php">run tests</a> page to start them.<br>
+<br>
+Previous test runs' logs are <a href="/testlogs">here</a></h4>
+
+ETL;
 	$lhs_heading = 'Considerations';
 	$rhs_heading = 'Approach';
 	$lhs_html = <<<'EOD'

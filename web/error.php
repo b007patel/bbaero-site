@@ -35,7 +35,14 @@ EOD;
 
 EOD;
 
-	$bottom_html .= "\t\t\t\t\t\t".$errvals['message'];
+	$disp_err_msg = $errvals['message'];
+	if (isset($_GET['euri'])) {
+                $sl1 = strpos($disp_err_msg, " /");
+                $sl2 = strpos($disp_err_msg, "/ ");
+		$disp_err_msg = substr_replace($disp_err_msg, $_GET['euri'],
+			$sl1 + 1, $sl2 - $sl1);
+	}
+	$bottom_html .= "\t\t\t\t\t\t".$disp_err_msg;
 
 	$bottom_html .= <<<'EOD'
 	
