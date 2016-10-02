@@ -217,7 +217,7 @@ ul#techlist li img {
 	vertical-align: -0.1em;
 }
 
-.gb_exp_text {
+.gb_run_text, .gb_exp_text {
 	font-size: larger;
 }
 
@@ -355,7 +355,7 @@ nav.navbar-inverse {
 		font-size: normal;;
 	}
 
-	#testform_lhs_hdr {
+	.tf_gb_hdr {
 		width: 100%;
 		margin-bottom: 0.25em;
 	}

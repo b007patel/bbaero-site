@@ -7,9 +7,9 @@
 
 	$heading = 'Testing of the Chemical Reaction Balancer';
 	$toplink = <<<'ETL'
-<h4>Note: to run headless tests on this web server go to the <a href="runtest.php">run tests</a> page to start them.<br>
+<h4>Note: to run headless tests on this web server go to the <a href="starttest.php">start tests</a> page to start them.<br>
 <br>
-Previous test runs' logs are <a href="/testlogs">here</a></h4>
+Previous test runs' logs are <a href="/testlogs/?C=M;O=D">here</a></h4>
 
 ETL;
 	$lhs_heading = 'Considerations';
@@ -69,7 +69,7 @@ EOD;
 						<p>
 						I wanted to have the tests start from a web browser, and run in a headless 
 						setup on the web server. Because I decided to use Java, I run the headless 
-						tests via a servlet. Go to the <a href="runtest.php">run tests</a> page to start them.
+						tests via a servlet. Go to the <a href="starttest.php">start tests</a> page to start them.
 						</p>
 
 EOD;
