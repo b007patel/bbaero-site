@@ -55,6 +55,8 @@ if(!empty($_SESSION['freecap_word_hash']) && !empty($_POST['rcword']))
 } else {
 	$word_ok = false;
 }
+	$GLOBALS['have_footer'] = false;
+	$GLOBALS['have_endhtml'] = false;
 	$page_title = "Bubbly Bubbly Aero - Feedback";
 
 	include $_SERVER["DOCUMENT_ROOT"].'/php/html-start-tmpl.php';
@@ -141,5 +143,7 @@ EOD;
 	//fwrite($ferr, "=====end=====".$nl.$nl);
 	//fclose($ferr);
 	include $_SERVER["DOCUMENT_ROOT"].'/php/footer-tmpl.php'; 
+	$GLOBALS['have_footer'] = true;
 	
 	include $_SERVER["DOCUMENT_ROOT"].'/php/html-end-tmpl.php';
+	$GLOBALS['have_endhtml'] = true;
