@@ -1,7 +1,7 @@
 [Sept 17, 2016]
 - At this time it seems likes too much hassle to upgrade to Ubuntu 16.0.4 LTS
  (Xenial Xerus)
-- To support "Option Indexes" and proxy_fcgi at the same time, though, upgraded
+- To support "Options Indexes" and proxy_fcgi at the same time, though, upgraded
  Apache from 2.4.7 to 2.4.23:
     # Install Apache packages from a PPA by Ondřej Surý's.
     sudo add-apt-repository -y ppa:ondrej/apache2
@@ -60,3 +60,12 @@
 - installed php5-fpm package
 - changed php5-fpm's default port to 19000
 
+[Oct 16, 2016]
+- after installing Xenial Xerus (Ubuntu LTS 16.04.1) I decided to use their
+  apache2 version (2.4.18) instead of Ondrej Sury's 2.4.23.
+- after installing it, I got an error:
+    Unit apache2.service is masked.
+- solution was to rm -rf the following two directories. This allowed for them
+  to be recreated properly.
+    - /etc/systemd/system/apache2.service
+    - /etc/systemd/system/apache-htcacheclean.service
