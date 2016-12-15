@@ -60,3 +60,22 @@
 - installed php5-fpm package
 - changed php5-fpm's default port to 19000
 
+[Sept 5, 2016]
+-- installed mod_jk shared library off the web somewhere
+-- added modjk.load/conf and modjk SLs to mods-enabled
+-- added the following to sites-enabled/default-site.conf:
+
+    # BP - for jk to work OK to send reqs to Tomcat
+    JkMount /chemtestpage/TestRunner|/* balancer
+    JkMount /chemtestpage/test.jsp balancer
+
+[Oct 9, 2016]
+-- must update JkMount entries for every new servlet added to Tomcat
+-- added the following line (with >> for emphasis) to
+   sites-enabled/default-site.conf:
+
+    # BP - for jk to work OK to send reqs to Tomcat
+    JkMount /chemtestpage/TestRunner|/* balancer
+ >> JkMount /chemtestpage/TRRequest|/* balancer
+    JkMount /chemtestpage/test.jsp balancer
+

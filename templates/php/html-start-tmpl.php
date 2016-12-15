@@ -32,6 +32,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/lightbox.css">
 	<link rel="stylesheet" href="/css/styles.css">
+<?php
+	if (isset($add_css_sheets)) {
+		$css_start = '<link rel="stylesheet" href="';
+		$css_end = '">';
+		$add_css_sheetlist = explode(",", $add_css_sheets);
+		foreach ($add_css_sheetlist as $i=>$acss) {
+			echo $css_start.$acss.$css_end;
+		}
+	}
+?>
 </head>
 <?php
 	include $_SERVER["DOCUMENT_ROOT"].'/php/vars.php';

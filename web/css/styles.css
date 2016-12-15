@@ -64,6 +64,7 @@ a:hover {
 
 div.row {
 	margin-left: 10px;
+	margin-right: 0px;
 }
 
 .phonetic {
@@ -93,7 +94,28 @@ textarea {
 	color: black;
 }
 
-div#form_container {
+.autowidth {
+ 	width: 1px;
+}
+
+td.autowidth {
+	padding-right: 2%;
+	border-right: 1px white solid;
+}
+
+td.autowidth + td {
+	padding-left: 0.5em;
+}
+
+.blanktd {
+ 	width: 1px;
+}
+
+.tbl-cell-show {
+ 	display: table-cell;
+}
+
+div#form-container {
 	margin: 0 auto;
 	min-height: 90%;
 }
@@ -120,6 +142,65 @@ label#fbcommentslabel {
 
 form div + div {
 	margin-top: 0.5em;
+}
+
+.testres-hdr {
+	font-size: 24px;
+}
+
+.status-icon {
+	font-size: 1.75em;
+}
+
+.testnum {
+	text-align: right;
+}
+
+.tbl-header {
+	border-bottom: 1px white solid;
+	text-align: left;
+}
+
+#queue-state {
+	margin: 1.5%;
+	width: 50%;
+}
+
+#qs-pos {
+	text-align: center;
+}
+
+.qs-icon {
+	width: 1px;
+	padding: 1%;
+}
+
+.qs-text {
+	font-size: larger;
+}
+
+.qs-wait {
+	background-color: yellow;
+	color: black;
+}
+
+.qs-update {
+	background-color: purple;
+	color: white;
+}
+
+.qs-go {
+	background-color: green;
+	color: black;
+}
+
+.qs-err {
+	background-color: red;
+	color: black;
+}
+
+#xhrerrs {
+	font-size: x-large;
 }
 
 .button {
@@ -151,7 +232,7 @@ ul#techlist li img {
 	display: inline-block;
 }
 
-.bbaero_error {
+.bbaero-error {
 	background-color: rgba(255, 0, 0, 0.5);
 	font-size: 0.85em;
 }
@@ -188,7 +269,7 @@ ul#techlist li img {
 	margin: 0 3px;
 }
 
-.tf_hdr {
+.tf-hdr {
 	font-size: x-large;
 	font-weight: bold;
 }
@@ -210,14 +291,13 @@ ul#techlist li img {
 	vertical-align: middle;
 }
 
-#cust_pct {
+#cust-runpct, #cust-failpct {
 	width: 2em;
 	height: 1em;
-	margin-left: 0.5em;
 	vertical-align: -0.1em;
 }
 
-.gb_run_text, .gb_exp_text {
+.gb-run-text, .gb-exp-text {
 	font-size: larger;
 }
 
@@ -330,8 +410,16 @@ nav.navbar-inverse {
 		min-width: 95%;
 	}
 
-	div#form_container {
+	div#form-container {
 		min-width: 100%;
+	}
+
+	div.row {
+		margin-left: 0;
+	}
+
+	div#main {
+		padding: 0;
 	}
 
 	#fbtext {
@@ -347,21 +435,41 @@ nav.navbar-inverse {
 		vertical-align: -0.3em;
 	}
 
-	.grpbox, .gb_exp_text {
+	.grpbox, .gb-run-text, .gb-exp-text {
 		font-size: small;
 	}
 
-	.tf_hdr {
+	.tf-hdr {
 		font-size: normal;;
 	}
 
-	.tf_gb_hdr {
+	.tf-gb-hdr {
 		width: 100%;
 		margin-bottom: 0.25em;
 	}
 
-	#cust_pct {
+	#cust-runpct, #cust-failpct {
 		height: 2em;
+	}
+
+	.testres-hdr {
+		font-size: larger;
+	}
+
+	.status-icon {
+		font-size: 1em;
+	}
+
+	#testres-tbl {
+		font-size: small;
+	}
+
+	#queue-state {
+		width: 100%;
+	}
+
+	.qs-text {
+		font-size: medium;
 	}
 
 	ul#techlist li img {
@@ -379,7 +487,7 @@ nav.navbar-inverse {
 		width: 85%;
 	}
 
-	div#form_container {
+	div#form-container {
 		max-width: 60%;
 	}
 

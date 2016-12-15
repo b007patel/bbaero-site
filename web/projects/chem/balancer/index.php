@@ -1,4 +1,6 @@
 <?php 
+	$GLOBALS['have_footer'] = false;
+	$GLOBALS['have_endhtml'] = false;
 	$page_title = "bbaero, Projects - Chem Reaction Balancer";
 
 	include $_SERVER["DOCUMENT_ROOT"].'/php/html-start-tmpl.php';
@@ -19,9 +21,9 @@
 
 						<p>
 						I assumed that <ul>
-                        <li>because this project will be used in tutoring, I designed it "large-screen 
-                        first", versus the standard "mobile first" technique used in designing most of the 
-                        bbaero site. 
+			<li>because this project will be used in tutoring, I designed it "large-screen 
+			first", versus the standard "mobile first" technique used in designing most of the 
+			bbaero site. 
 						<li>only simple reactions are to be balanced.</li>
 						<ul><li>Half-cell reactions and hard-to-balance reactions will fail to balance, 
 						even though they may be able to be balanced</li>
@@ -101,5 +103,7 @@ EOD;
 	include $_SERVER["DOCUMENT_ROOT"].'/php/main-tmpl.php';
 	
 	include $_SERVER["DOCUMENT_ROOT"].'/php/footer-tmpl.php'; 
+	$GLOBALS['have_footer'] = true;
 	
 	include $_SERVER["DOCUMENT_ROOT"].'/php/html-end-tmpl.php';
+	$GLOBALS['have_endhtml'] = true;
