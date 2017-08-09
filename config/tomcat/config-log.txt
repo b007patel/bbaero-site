@@ -1,3 +1,111 @@
+Aug 8, 2017
+- set up Tomcat 8 on laptop with Ubuntu 16.0.4 LTS and Apache 2.4.18.
+- sometime earlier in 2017, upgraded bbaero to Ubuntu 16.0.4 LTS/Apache
+  2.4.18
+- match laptop's Tomcat 8 config with bbaero's:
+--- copy /var/lib/tomcat8/webcli.props from bbaero
+--- all other changes summarized as diff output:
+===============
+Common subdirectories: /home/quirk/etc-tc8-bbaero/Catalina and /etc/tomcat8/Catalina
+diff /home/quirk/etc-tc8-bbaero/catalina.properties /etc/tomcat8/catalina.properties
+141,172d140
+< # BP: sometimes the TldConfig.jarsToSkip setting below is ignored. However,
+< # cannot add these jars to StandardJarScanFilter.jarsToScan above, because
+< # servlet annotations (like AsyncSupported) don't work
+< 
+< # Additional JARs (over and above the default JARs listed above) to skip when
+< # scanning for TLDs. The list must be a comma separated list of JAR file names.
+< org.apache.catalina.startup.TldConfig.jarsToSkip=\
+< tomcat8-annotations-api-8.0.32.jar,\
+< tomcat8-api-8.0.32.jar,\ tomcat8-catalina-8.0.32.jar,\
+< tomcat8-catalina-ant-8.0.32.jar,\ tomcat8-catalina-ha-8.0.32.jar,\
+< tomcat8-catalina-storeconfig-8.0.32.jar,\ tomcat8-coyote-8.0.32.jar,\
+< tomcat8-dbcp-8.0.32.jar,\ tomcat8-el-api-8.0.32.jar,\
+< tomcat8-i18n-es-8.0.32.jar,\ tomcat8-i18n-fr-8.0.32.jar,\
+< tomcat8-i18n-ja-8.0.32.jar,\ tomcat8-jasper-8.0.32.jar,\
+< tomcat8-jasper-el-8.0.32.jar,\ tomcat8-jdbc-8.0.32.jar,\
+< tomcat8-jni-8.0.32.jar,\ tomcat8-jsp-api-8.0.32.jar,\
+< tomcat8-juli-8.0.32.jar,\ tomcat8-servlet-api-8.0.32.jar,\
+< tomcat8-tribes-8.0.32.jar,\ tomcat8-util-8.0.32.jar,\
+< tomcat8-util-scan-8.0.32.jar,\ tomcat8-websocket-8.0.32.jar,\
+< tomcat8-websocket-api-8.0.32.jar,\ apache-mime4j-0.6.jar,\
+< httpcore-4.4.3.jar,\ bsh-2.0b4.jar,\ httpmime-4.5.jar,\
+< cglib-nodep-2.1_3.jar,\ jcommander-1.48.jar,\ chemtest.jar,\ jna-4.1.0.jar,\
+< commons-codec-1.10.jar,\ jna-platform-4.1.0.jar,\ commons-exec-1.3.jar,\
+< jsoup-1.9.2.jar,\ commons-io-2.4.jar,\ junit-4.12.jar,\
+< commons-logging-1.2.jar,\ mysql-connector-java-5.1.17.jar,\ gson-2.3.1.jar,\
+< netty-3.5.7.Final.jar,\ guava-19.0.jar,\ phantomjsdriver-1.2.1.jar,\
+< hamcrest-core-1.3.jar,\ selenium-java-2.53.1.jar,\ hamcrest-library-1.3.jar,\
+< testng-6.9.9.jar,\ httpclient-4.5.1.jar
+< 
+< ## BP - supposedly this is a solution to "non-recycled response" exceptions
+< #org.apache.catalina.connector.RECYCLE_FACADES=true
+< 
+diff /home/quirk/etc-tc8-bbaero/context.xml /etc/tomcat8/context.xml
+36,69d35
+< 
+<     <!-- BP - for chemtestpage web application -->
+< 
+<     <!-- maxTotal: Maximum number of database connections in pool. Make sure you
+<          configure your mysqld max_connections large enough to handle
+<          all of your db connections. Set to -1 for no limit.
+<          -->
+< 
+<     <!-- maxIdle: Maximum number of idle database connections to retain in pool.
+<          Set to -1 for no limit.  See also the DBCP documentation on this
+<          and the minEvictableIdleTimeMillis configuration parameter.
+<          -->
+< 
+<     <!-- maxWaitMillis: Maximum time to wait for a database connection to become available
+<          in ms, in this example 10 seconds. An Exception is thrown if
+<          this timeout is exceeded.  Set to -1 to wait indefinitely.
+<          -->
+< 
+<     <!-- username and password: MySQL username and password for database connections  -->
+< 
+<     <!-- driverClassName: Class name for the old mm.mysql JDBC driver is
+<          org.gjt.mm.mysql.Driver - we recommend using Connector/J though.
+<          Class name for the official MySQL Connector/J driver is com.mysql.jdbc.Driver.
+<          -->
+<     
+<     <!-- url: The JDBC connection url for connecting to your MySQL database.
+<          BP Orig URL line: url="jdbc:mysql://localhost:15000/chemtest"/>
+<          -->
+< 
+<   <Resource name="jdbc/ChemTestDB" auth="Container" type="javax.sql.DataSource"
+<        maxTotal="30" maxIdle="10" maxWaitMillis="10000"
+<        username="root" password="admin" driverClassName="com.mysql.jdbc.Driver"
+<        url="jdbc:mysql://localhost:15000/chemtest"/>
+< 
+diff /home/quirk/etc-tc8-bbaero/logging.properties /etc/tomcat8/logging.properties
+26d25
+< #1catalina.org.apache.juli.FileHandler.level = ALL
+31d29
+< #2localhost.org.apache.juli.FileHandler.level = ALL
+36d33
+< #java.util.logging.ConsoleHandler.level = ALL
+53,59d49
+< 
+< # To see debug messages in TldLocationsCache, uncomment the following line:
+< #org.apache.jasper.compiler.TldLocationsCache.level = FINEST
+< #org.apache.jasper.servlet.TldScanner.level = FINEST
+< 
+< # Uncomment this line for full debug output. VERY verbose!
+< #org.apache.catalina.level=FINEST
+Common subdirectories: /home/quirk/etc-tc8-bbaero/policy.d and /etc/tomcat8/policy.d
+diff /home/quirk/etc-tc8-bbaero/server.xml /etc/tomcat8/server.xml
+94,96c94,96
+<     <!-- BP default connectionTimeout was unset-->
+<     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+<     <!--           connectionTimeout="660000" redirectPort="8443"/-->
+---
+>     <!--
+>     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+>     -->
+===============
+
+- runtest.html and change_tmpls.sh do not exist anymore
+
 Sept 7, 2016
 - added /etc/tomcat7/userenv.bp to set some environment variables for
   tomcat

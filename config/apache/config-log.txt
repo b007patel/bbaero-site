@@ -1,3 +1,122 @@
+[Aug 08, 2017]
+- some time in 2017 bbaero was upgraded to Ubuntu 16.0.4 LTS. The Apache server
+  was changed to Apache 2.4.18, since that is what Ubuntu 16.0.4 LTS has.
+- its configuration was updated, if needed, by the apache2 package install
+- set up Ubuntu 16.0.4 on a laptop. Here were the Apache setup steps
+--- installed Apache 2.4.18 (package name apache2)
+--- installed PHP 7.0 (package name php)
+--- installed modjk (package names libapache2-mod-jk, libapache-mod-jk-doc)
+--- summary of differences between default mods-available/jk.conf and
+    bbaero's file:
+19,21d18
+< # Change the path and file name of the module, in case
+< # you have installed it outside of httpd, or using
+< # a versioned file name.
+26c23
+<     JkWorkersFile /etc/apache2/conf-available/workers.properties
+---
+>     JkWorkersFile /etc/libapache2-mod-jk/workers.properties
+35,44d31
+<     ## BP - increased timeout from default 5 min (300 s) to 660 s (11 min)
+<     ## Increased to support test servlet requests
+<     #Timeout 660
+< 
+<     ## BP - decreased timeout from default 5 min (300 s) to 120 s (2 min)
+<     ## Decreased to use less resources handling test servlet requests
+<     #Timeout 120
+<     Timeout 300
+< 
+< 
+46c33
+<     JkShmFile /var/log/apache2/mod_jk.shm
+---
+>     JkShmFile /var/log/apache2/jk-runtime-status
+
+--- summary of differences between default default-ssl.conf and bbaero's file:
+2,10d1
+< 
+< 	<IfModule mod_rewrite.c>
+< 		<VirtualHost *:80>
+< 			RewriteEngine On
+< 			RewriteCond %{HTTPS} off
+< 			RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+< 		</VirtualHost>
+< 	</IfModule>
+< 
+12,13c3
+< 		#ServerAdmin webmaster@localhost
+< 		ServerAdmin b007patel@yahoo.com
+---
+> 		ServerAdmin webmaster@localhost
+15,16c5
+< 		#DocumentRoot /var/www/html
+< 		DocumentRoot /var/www
+---
+> 		DocumentRoot /var/www/html
+22,23c11
+< 		LogLevel info ssl:warn
+< 		#LogLevel debug
+---
+> 		#LogLevel info ssl:warn
+27,45d14
+< 		
+< 		# BP - added to forward PHP requests to PHP-FPM server
+< 		<FilesMatch \.phps$>
+< 			SetHandler application/x-httpd-php-source
+< 		</FilesMatch>
+< 		<FilesMatch \.php$>
+< 			 SetHandler "proxy:fcgi://127.0.0.1:19000"
+< 		</FilesMatch>
+< 
+< 		## BP proxy settings to send reqs to Tomcat
+< 		#ProxyPass "/chemtestpage" "ajp://localhost:8009"
+< 
+< 		# BP - for jk to work OK to send reqs to Tomcat
+< 		JkMount /chemtestpage/TestRunner|/* balancer
+< 		JkMount /chemtestpage/TRRequest|/* balancer
+< 		#JkMount /chemtestpage/test.jsp balancer
+< 		# BP - for queue requests to last, need to disable jk timeout
+< 		# or set it to a value > request timeout
+< 		SetEnvIf Request_URI "/chemtestpage/*" JK_REPLY_TIMEOUT=0
+63,66c32,33
+< 		SSLCertificateFile	/etc/apache2/ssl.crt/bbaero_freeddns_org.crt
+< 		SSLCertificateKeyFile	/etc/apache2/ssl.key/bbaero.key
+< 		#SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+< 		#SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+---
+> 		SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+> 		SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+75c42
+< 		SSLCertificateChainFile /etc/apache2/ssl.crt/comodo-positiveSSL-auth-chain.ca-bundle
+---
+> 		#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
+84c51
+< 		SSLCACertificatePath /etc/ssl/certs/
+---
+> 		#SSLCACertificatePath /etc/ssl/certs/
+163,164d129
+< 		# MSIE 7 and newer should be able to use keepalive
+< 		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+--- note that the certificate differences were NOT made on the laptop because
+  the certificates are only valid for bbaero.freeddns.org
+--- changed php-fpm's port to 19000 (search this file for '19000' for change
+    steps)
+--- matched mods-enabled on laptop to be the same as bbaero's mods-enabled
+----- removed mpm_event.* symlinks, replaced with mpm_prefork.* symlinks
+----- added the following symlinks:
+   -- proxy.conf
+   -- proxy_fcgi.conf
+   -- proxy.load
+   -- rewrite.load
+   -- socache_shmcb.load
+   -- ssl.conf
+   -- ssl.load
+--- matched conf-enabled on laptop to be the same as bbaero's conf-enabled
+   -- copied conf-available/javascript-common.conf from bbaero to laptop.
+   -- made conf-enabled/javascript-common.conf symlink to enable it
+   -- copied conf-available/workers.properties from bbaero to laptop.
+   -- made conf-enabled/workers.properties symlink to enable it
+ 
 [Sept 17, 2016]
 - At this time it seems likes too much hassle to upgrade to Ubuntu 16.0.4 LTS
  (Xenial Xerus)
@@ -53,12 +172,22 @@
 -- performance is much quicker
 - removed php.load/.conf symlinks (SLs) from mods-enabled
 - added proxy.load/.conf and proxy_fcgi SLs to mods-enabled
-- added a ProxyPass directive to tell Apache to forward php's to php5-fpm
+- added a ProxyPass directive in sites-enabled/default_ssl.conf to tell
+  Apache to forward php's to php5-fpm
     # from https://wiki.mikejung.biz/Php-fpm accessed on 2016-09-04
     ProxyPassMatch ^/(.*.php(/.*)?)$ fcgi://127.0.0.1:19000/var/www/$1
 
 - installed php5-fpm package
-- changed php5-fpm's default port to 19000
+- changed php5-fpm's default port to 19000 by changing a line in
+  /etc/php/7.0/fpm/pool.d/www.conf. Changed
+
+    listen = /run/php/php7.0-fpm.sock
+
+  to
+
+    ; BP - commenting out default file socket listener, adding localhost listener
+    ;listen = /run/php/php7.0-fpm.sock
+    listen = 127.0.0.1:19000
 
 [Oct 16, 2016]
 - after installing Xenial Xerus (Ubuntu LTS 16.04.1) I decided to use their
@@ -73,7 +202,7 @@
 [Sept 5, 2016]
 -- installed mod_jk shared library off the web somewhere
 -- added modjk.load/conf and modjk SLs to mods-enabled
--- added the following to sites-enabled/default-site.conf:
+-- added the following to sites-enabled/default-ssl.conf:
 
     # BP - for jk to work OK to send reqs to Tomcat
     JkMount /chemtestpage/TestRunner|/* balancer
@@ -82,7 +211,7 @@
 [Oct 9, 2016]
 -- must update JkMount entries for every new servlet added to Tomcat
 -- added the following line (with >> for emphasis) to
-   sites-enabled/default-site.conf:
+   sites-enabled/default-ssl.conf:
 
     # BP - for jk to work OK to send reqs to Tomcat
     JkMount /chemtestpage/TestRunner|/* balancer
