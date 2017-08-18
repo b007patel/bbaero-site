@@ -59,7 +59,7 @@ EOD;
 	include $_SERVER["DOCUMENT_ROOT"].'/php/main-tmpl.php';
 	
 	/*include $_SERVER["DOCUMENT_ROOT"].'/php/footer-tmpl.php'; 
-	$GLOBALS['have_footer'] = true;
+	$GLOBALS['have_footer'] = true;*/
 	
 	include $_SERVER["DOCUMENT_ROOT"].'/php/html-end-tmpl.php';
-	$GLOBALS['have_endhtml'] = true;*/
+	$GLOBALS['have_endhtml'] = true;
