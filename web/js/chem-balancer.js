@@ -89,7 +89,8 @@ function TestPollHttpReq() {
 }
 
 TestPollHttpReq.method("updateContent", function(xhr, elem, prevhtml) {
-    xhr_resp = xhr.response;
+    xhr_resp = xhr.response.trim();
+    xhr_resp = xhr_resp.replace(/\0/g, '');
     if (xhr_resp == null || xhr_resp == "null") { xhr_resp = ""; }
     dlog(new Date().toLocaleString() + " XHR response: ", xhr_resp);
     // to prevent flashing on older devices. Also to hang onto results
@@ -182,7 +183,8 @@ TestPollHttpReq.method('sendReq', function(http_method, url,
     this.aborted = false;
     xhr.onreadystatechange = function(){
         if (elem !== undefined && elem != null) {
-            curResponse = elem.innerHTML;
+            curResponse = elem.innerHTML.trim();
+            curResponse = curResponse.replace(/\0/g, '');
             if (curResponse.length > prevContents.length) {
                 prevContents = curResponse;
             }
