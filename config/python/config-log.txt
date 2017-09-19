@@ -1,0 +1,8 @@
+[Sept 18. 2017]
+- APPLIES TO DEVELOPMENT CLIENTS ONLY!! (i.e., NON-AWS MACHINES)
+  (e.g., FOR MAC/WINDOWS BOXES, LINUX LAPTOPS)
+- when using pip, use pip --user instead of the default. E.g.,
+--- sudo pip install --user selenium
+  instead of
+--- sudo pip install selenium
+  This installs packages in the correct site-packages folder

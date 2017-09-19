@@ -1,0 +1,14 @@
+[Oct 14, 2016]
+- ran the upgrade to Ubuntu 16.04.1 LTS (Xenial Xerus), confirmed in the
+  contents of /etc/os-release
+--- PHP now v7.0, so need to check what may have been affected
+--- Tomcat seemed to stay at v7.x. Must confirm
+--- Apache remained at v2.4.23
+--- Keep eyes peeled for any other weird stuff
+--- uname -a output:
+       Linux ip-172-31-55-128 4.4.0-43-generic #63-Ubuntu SMP Wed Oct 12 13:48:03 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+[Oct 17, 2016]
+- updated chromedriver to 2.24 after Chrome was updated by apt-get to v54.x.
+--- without the update, testing gave a "NullPointerException" when refering to
+  the chromedriver Java instance
