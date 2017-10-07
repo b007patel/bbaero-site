@@ -1,0 +1,16 @@
+[Oct 14, 2016]
+- using the browscap.org recommended Browscap PHP library (installed using
+  the composer utility), instead of the default get_browser_info() call. This
+  was done to avoid getting many "Unexpected..." errors in Apache's error.log
+--- Install by cd'ing to /usr/share/compoer, then running "composer require         browscap/browscap-php"
+--- Need to update cache to a directory accessible to OS user www-data. I ran
+    the following command to do this:
+ 
+      sudo -u www-data vendor/bin/browscap-php browscap:update --cache /var/www/php/
+
+    This command grabs the latest browscap.ini and converts it into a format
+    usable by PHP.
+
+    Note that '/var/www/php' is accessible to www-data, but another directory
+    that it can access would also work.  
+    
