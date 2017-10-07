@@ -1,5 +1,6 @@
 var errFound;
 var debugOn = true;
+var pgroot = "<unknown>";
 
 $( function () {
 
@@ -12,6 +13,7 @@ $( function () {
     // - all js/no-js CSS rules start with the respective <body> class,
     //   then list the affected descendants
     document.body.className = document.body.className.replace( "no-js", "js" );
+    if (pgroot == "<unknown>") getUrlBase();
 } )
 
 dlog = console.log.bind(console);
@@ -56,10 +58,26 @@ Function.method('inherits', function (parent) {
     return this;
 });
 
+// optional argument output_wbelem is the CSS ID of a web element to
+// display the URL base found by this function
+function getUrlBase(output_wbelem) {
+    raw_base = window.location.href;
+    // find first '/' after initial 'http[s]://' '/'s
+    slash_index = raw_base.search(/[A-Za-z]\/[0-9A-Za-z]/g) + 1;
+    urlbase = raw_base.slice(0, slash_index + 1);
+    pgroot = urlbase;
+    noelem = (output_wbelem === undefined || output_wbelem == null);
+    if (!noelem) {
+        noelem = output_wbelem.length < 1;
+    }
+    if (!noelem) {
+        document.getElementById(output_wbelem).value = urlbase;
+    }
+}
+
 function new_freecap() {
     // loads new freeCap image
-    if(document.getElementById)
-    {
+    if(document.getElementById) {
         // extract image name from image source (i.e. cut off ?randomness)
         thesrc = document.getElementById("freecap").src;
         thesrc = thesrc.substring(0,thesrc.lastIndexOf(".")+4);
@@ -90,6 +108,7 @@ function xhrLoadPage(newurl) {
             newdoc.body.className = newdoc.body.className.replace( "no-js",
                     "js" );
             document.body = newdoc.body;
+            if (pgroot == "<unknown>") getUrlBase();
             // checking newdoc.<script>'s gives 0 tags, but this works with
             // document.<script>'s
             script_tags = document.getElementsByTagName("script");
