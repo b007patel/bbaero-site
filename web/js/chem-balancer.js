@@ -1,4 +1,5 @@
-var chembalroot = "https://bbaero.freeddns.org/projects/chem/balancer/";
+if (pgroot == "<unknown>") getUrlBase();
+var chembalroot = pgroot + "projects/chem/balancer/";
 
 function showQueueState(qstate) {
     hiddenStates = ['update', 'wait', 'go', 'err'];
@@ -114,7 +115,7 @@ TestPollHttpReq.method("getStartTime", function(rawresp, label_pos) {
 
 TestPollHttpReq.method("getRunLog", function(start_time) {
     var trun = this;
-    loghome = "https://bbaero.freeddns.org/testlogs/";
+    loghome = pgroot + "testlogs/";
     this.tblxhr.open("GET", loghome + "?C=M;O=D"); this.tblxhr.send();
     this.tblxhr.onload = function() {
         rawtbl = trun.tblxhr.responseText;
@@ -179,7 +180,7 @@ TestPollHttpReq.method('sendReq', function(http_method, url,
     this.doHttpAction(xhr, http_method, url, reqparms, "test-wait");
 
     var elem = null, trun = this, prevContents = "";
-    var logUrl = "http://bbaero.freeddns.org/testlogs/";
+    var logUrl = pgroot + "testlogs/";
     this.aborted = false;
     xhr.onreadystatechange = function(){
         if (elem !== undefined && elem != null) {
