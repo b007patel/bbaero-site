@@ -12,12 +12,12 @@ Composer and the deployment server
     e.g, "sudo -u www-data cp composer.* /var/...ez/web/php"
 -- this should only have to be done once, unless the deployment dir is
    unexpectedly nuked/paved
+- to avoid warnings about not being able to generate/use cache files and dirs
+  when doing a composer update, run the following command:
+    sudo chmod -R 777 ~/.composer/cache
 - to update the composer packages in the deployment dir
 --- sudo -u <Apached service user> composer update -v
 --- must run in the deployment directory
---- this cmd will generate warnings about not being able to generate/use
-    cache files and dirs before the update. Because the Apache service user
-    has no home directory, these can be safely ignored.
 
 [Oct 14, 2016]
 - using the browscap.org recommended Browscap PHP library (installed using
