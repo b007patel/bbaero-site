@@ -1,3 +1,24 @@
+[May 15, 2018]
+Composer and the deployment server
+==========================================================================
+- composer.json and composer.lock files should be in the web server's
+  deployment directory
+- composer.json is defined by the user
+- composer.lock is created by composer. HOWEVER. it should be placed in the
+  deployment directory to ensure that the correct versions of php libraries
+  from packagist (the composer repository, like CPAN for Perl) are copied
+- to copy the composer.json and composer.lock files to the deployment dir:
+-- sudo -u <Apache service user> cp composer.* <deployment directory>
+    e.g, "sudo -u www-data cp composer.* /var/...ez/web/php"
+-- this should only have to be done once, unless the deployment dir is
+   unexpectedly nuked/paved
+- to update the composer packages in the deployment dir
+--- sudo -u <Apached service user> composer update -v
+--- must run in the deployment directory
+--- this cmd will generate warnings about not being able to generate/use
+    cache files and dirs before the update. Because the Apache service user
+    has no home directory, these can be safely ignored.
+
 [Oct 14, 2016]
 - using the browscap.org recommended Browscap PHP library (installed using
   the composer utility), instead of the default get_browser_info() call. This
